@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Concept 6 · Industrial — Panchal Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #ecebe6; --panel: #f7f6f2; --ink: #121212; --soft: #4a4a48; --muted: #7d7c78;
+      --rule: #121212; --accent: #f2b705;
+      --gx: clamp(16px, 3vw, 32px);
+    }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Barlow", system-ui, sans-serif; }
+    .cond, h1, h2, h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: -.005em; line-height: .92; font-weight: 800; }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 var(--gx); }
+    .frame { border: 2px solid var(--rule); background: var(--panel); }
+    .code { font: 600 13px "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 26px;
+      font: 700 18px "Barlow Condensed", sans-serif; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--ink); }
+    .btn-y { background: var(--accent); }
+    .btn-y:hover { background: var(--ink); color: var(--accent); }
+    .btn-k { background: var(--ink); color: #fff; }
+    .btn-k:hover { background: transparent; color: var(--ink); }
+
+    /* Header */
+    header { border-bottom: 2px solid var(--rule); background: var(--panel); }
+    header .wrap { display: flex; align-items: stretch; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 800 24px "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+    .logo i { width: 14px; height: 14px; background: var(--accent); border: 2px solid var(--ink); }
+    header nav { display: flex; }
+    header nav a { display: flex; align-items: center; padding: 0 22px; border-left: 2px solid var(--rule); text-decoration: none; font: 600 16px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    header nav a:hover { background: var(--ink); color: #fff; }
+    header nav a.call { background: var(--accent); }
+    header nav a.call:hover { background: var(--ink); color: var(--accent); }
+
+    /* Hero */
+    .hero { padding-block: clamp(20px, 3vw, 32px); }
+    .hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; }
+    .hero-title { grid-column: span 12; padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px) clamp(20px, 3vw, 32px); border-bottom: 0; }
+    .hero-title .code { display: flex; justify-content: space-between; margin-bottom: 20px; color: var(--soft); flex-wrap: wrap; gap: 8px; }
+    .hero h1 { font-size: clamp(3.4rem, 11.5vw, 11rem); }
+    .hero h1 { line-height: .98; }
+    .hero h1 span { background: linear-gradient(transparent 10%, var(--accent) 10%, var(--accent) 94%, transparent 94%); padding: 0 .08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .hero-panels { grid-column: span 12; display: grid; grid-template-columns: 2fr 1fr 1fr; border: 2px solid var(--rule); border-top: 0; }
+    .hero-panels > * { border-right: 2px solid var(--rule); }
+    .hero-panels > *:last-child { border-right: 0; }
+    .hero-panels .ph { min-height: 300px; }
+    .hero-cta { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 24px; background: var(--panel); }
+    .hero-cta p { font-size: 17px; color: var(--soft); }
+    .hero-cta .btns { display: grid; gap: 10px; }
+
+    /* Services spec table */
+    .section { padding-block: clamp(48px, 7vw, 96px); }
+    .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+    .sec-head h2 { font-size: clamp(2.6rem, 7vw, 6rem); }
+    .sec-head .code { color: var(--soft); }
+    .spec { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .spec li { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(18,18,18,.25); }
+    .spec li:nth-child(odd) { padding-right: 32px; border-right: 2px solid var(--rule); }
+    .spec li:nth-child(even) { padding-left: 32px; }
+    .spec .n { font: 700 18px "Barlow Condensed", sans-serif; color: var(--muted); }
+    .spec h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 700; }
+    .spec .code { color: var(--soft); text-align: right; }
+
+    /* Work panels */
+    .panels { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, clamp(180px, 20vw, 280px)); border: 2px solid var(--rule); border-top: 0; }
+    .panel { position: relative; border-right: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+    .panel .ph { position: absolute; inset: 0; }
+    .panel .tag { position: absolute; left: 0; bottom: 0; background: var(--panel); border-top: 2px solid var(--rule); border-right: 2px solid var(--rule); padding: 8px 14px; font: 700 18px "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+    .panel .tag small { display: block; font: 500 12px "Barlow", sans-serif; text-transform: none; letter-spacing: 0; color: var(--muted); }
+    .p1 { grid-column: span 2; grid-row: span 2; }
+    .p3, .p5 { border-right: 0; }
+    .p4, .p5 { border-bottom: 0; }
+    .p1 { border-bottom: 0; }
+
+    /* Facts row */
+    .facts { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; border: 2px solid var(--rule); background: var(--panel); }
+    .facts > div { padding: 24px; border-right: 2px solid var(--rule); }
+    .facts > div:last-child { border-right: 0; }
+    .facts .code { color: var(--muted); display: block; margin-bottom: 10px; }
+    .facts p { font-size: 16px; }
+    .facts .about p { font-size: 18px; }
+
+    /* Contact */
+    .contact { background: var(--accent); border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+    .contact .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); }
+    .contact h2 { font-size: clamp(3rem, 8vw, 7.5rem); }
+    .contact .phone { display: block; margin-top: 24px; font: 800 clamp(2rem, 4.4vw, 3.6rem) "Barlow Condensed", sans-serif; text-decoration: none; letter-spacing: .01em; }
+    .contact ul { border-top: 2px solid var(--rule); }
+    .contact li { padding: 14px 0; border-bottom: 2px solid var(--rule); font-weight: 500; }
+    .contact li a { text-decoration: none; }
+    .contact .btn { margin-top: 20px; }
+
+    footer .wrap { display: flex; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; gap: 8px; }
+
+    @media (max-width: 960px) {
+      header nav a:not(.call) { display: none; }
+      .hero-panels { grid-template-columns: 1fr 1fr; }
+      .hero-panels .ph:first-child { grid-column: span 2; border-right: 0; border-bottom: 2px solid var(--rule); }
+      .spec { grid-template-columns: 1fr; }
+      .spec li:nth-child(odd), .spec li:nth-child(even) { padding: 18px 0; border-right: 0; }
+      .panels { grid-template-columns: 1fr 1fr; grid-template-rows: auto; grid-auto-rows: 200px; }
+      .p1 { grid-column: span 2; grid-row: auto; height: 300px; border-bottom: 2px solid var(--rule); }
+      .p2, .p4 { border-right: 2px solid var(--rule); }
+      .p3, .p5 { border-right: 0; }
+      .p2, .p3 { border-bottom: 2px solid var(--rule); }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .facts > div { border-bottom: 2px solid var(--rule); }
+      .facts > div:nth-child(2) { border-right: 0; }
+      .facts .about { grid-column: span 2; border-right: 0; }
+      .facts > div:nth-child(3) { border-right: 2px solid var(--rule); }
+      .facts > div:nth-last-child(-n+2) { border-bottom: 0; }
+      .contact .wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .logo { font-size: 20px; }
+      header nav a.call { padding: 0 14px; }
+      .hero-panels { grid-template-columns: 1fr; }
+      .hero-panels .ph:first-child { grid-column: auto; }
+      .hero-panels .ph:nth-child(2) { display: none; }
+      .hero-panels .ph { min-height: 240px; border-right: 0; border-bottom: 2px solid var(--rule); }
+      .spec li { grid-template-columns: 44px 1fr; }
+      .spec .code { grid-column: 2; text-align: left; }
+      .panels { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: 220px; }
+      .p1 { grid-column: auto; height: auto; }
+      .panel, .p2, .p3, .p4 { border-right: 0; border-bottom: 2px solid var(--rule); }
+      .p5 { border-bottom: 0; }
+      .facts { grid-template-columns: 1fr; }
+      .facts > div, .facts > div:nth-child(3) { border-right: 0; border-bottom: 2px solid var(--rule); }
+      .facts .about { grid-column: auto; }
+      .facts > div:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#"><i></i>Panchal Motors</a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#info">Workshop</a>
+        <a class="call" href="tel:+919426546431">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-title frame">
+          <div class="code"><span>Vehicle Body Builders</span><span>GIDC · Deesa · Gujarat</span></div>
+          <h1>Bodies built<br>for <span>hard work.</span></h1>
+        </div>
+        <div class="hero-panels">
+          <div class="ph" data-label="Panel A — finished commercial body"></div>
+          <div class="ph" data-label="Panel B — fabrication"></div>
+          <div class="hero-cta">
+            <p>Custom body building, ambulances, chassis work and finishing for commercial and utility vehicles.</p>
+            <div class="btns">
+              <a class="btn btn-y" href="#contact">Send an Enquiry →</a>
+              <a class="btn btn-k" href="tel:+919426546431">+91 94265 46431</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="services">
+      <div class="sec-head">
+        <h2>Services</h2>
+        <span class="code">06 capabilities</span>
+      </div>
+      <ul class="spec">
+        <li><span class="n">01</span><h3>Body Building</h3><span class="code">Commercial · Utility</span></li>
+        <li><span class="n">02</span><h3>Ambulances</h3><span class="code">Body · Interior · Wiring</span></li>
+        <li><span class="n">03</span><h3>Chassis Work</h3><span class="code">Fabrication</span></li>
+        <li><span class="n">04</span><h3>Body &amp; Paint</h3><span class="code">Full body · Paint</span></li>
+        <li><span class="n">05</span><h3>Interior &amp; Wiring</h3><span class="code">Fit-out · Electrical</span></li>
+        <li><span class="n">06</span><h3>Guards &amp; Custom</h3><span class="code">Safety guards · Accessories</span></li>
+      </ul>
+    </section>
+
+    <section class="wrap" id="work">
+      <div class="sec-head" style="border: 2px solid var(--rule); border-bottom: 2px solid var(--rule); padding: 20px 24px; background: var(--panel);">
+        <h2>Work</h2>
+        <a class="code" href="#contact" style="text-decoration:none">Discuss your build →</a>
+      </div>
+      <div class="panels">
+        <figure class="panel p1"><div class="ph"></div><figcaption class="tag">Ambulance<small>Body &amp; interior</small></figcaption></figure>
+        <figure class="panel p2"><div class="ph"></div><figcaption class="tag">Tata Yoddha<small>Body building</small></figcaption></figure>
+        <figure class="panel p3"><div class="ph"></div><figcaption class="tag">Isuzu Pik-Up<small>Body building</small></figcaption></figure>
+        <figure class="panel p4"><div class="ph"></div><figcaption class="tag">Mahindra Thar<small>Custom work</small></figcaption></figure>
+        <figure class="panel p5"><div class="ph"></div><figcaption class="tag">Scorpio<small>Custom work</small></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section wrap" id="info">
+      <div class="facts">
+        <div class="about"><span class="code">The Workshop</span><p>Panchal Motors builds and customises vehicle bodies at GIDC, Deesa, from chassis to paint, interior and wiring.</p></div>
+        <div><span class="code">Makes</span><p>Mahindra, Tata, Maruti, Hyundai, Toyota, Eicher</p></div>
+        <div><span class="code">Hours</span><p>Mon – Sat<br>9:00 am – 6:00 pm</p></div>
+        <div><span class="code">Location</span><p>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div>
+          <span class="code">Contact</span>
+          <h2>Got a build?<br>Call the workshop.</h2>
+          <a class="phone" href="tel:+919426546431">+91 94265 46431</a>
+        </div>
+        <div>
+          <ul>
+            <li><a href="tel:+919427640631">+91 94276 40631</a></li>
+            <li><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></li>
+            <li>GIDC, Railway Station Road, Deesa, Gujarat</li>
+          </ul>
+          <a class="btn btn-k" href="mailto:jmpanchal76@gmail.com?subject=Vehicle%20body%20enquiry">Email an Enquiry →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap code"><span>© Panchal Motors</span><span>Deesa, Gujarat</span></div></footer>
+
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

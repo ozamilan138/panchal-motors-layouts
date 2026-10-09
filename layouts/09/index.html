@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Layout 09 · Product Explorer — Panchal Motors</title>
+  <meta name="description" content="Browse Panchal Motors builds by category: pickup and load bodies, ambulances, truck bodies, bumpers and guards, and SUV and custom work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #f5f7fa; --white: #fff; --ink: #0f1a2a; --soft: #48566a; --muted: #6d7a8c;
+      --line: #dde3eb; --blue: #1652b8; --blue-dark: #0f3f8f; --blue-tint: #e8effb;
+      --gx: clamp(16px, 4vw, 40px); --r: 14px;
+    }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Plus Jakarta Sans", system-ui, sans-serif; }
+    h1, h2, h3 { letter-spacing: -.025em; line-height: 1.1; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--gx); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; text-decoration: none; border: 1.5px solid transparent; transition: background-color .2s, border-color .2s; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-blue:hover { background: var(--blue-dark); }
+    .btn-line { background: var(--white); border-color: var(--line); }
+    .btn-line:hover { border-color: var(--ink); }
+    .kicker { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: .04em; margin-bottom: 12px; }
+
+    /* Header */
+    .hdr { background: var(--white); border-bottom: 1px solid var(--line); }
+    .hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 18px; }
+    .logo i { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--blue); color: #fff; font-style: normal; font-size: 13px; }
+    .nav { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
+    .nav a:not(.btn) { color: var(--soft); text-decoration: none; }
+    .nav a:not(.btn):hover { color: var(--ink); }
+    .nav .btn { min-height: 42px; }
+
+    /* Hero */
+    .hero { padding-block: clamp(40px, 6vw, 72px) clamp(32px, 4vw, 48px); }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+    .hero h1 { font-size: clamp(2.3rem, 4.8vw, 3.9rem); font-weight: 800; }
+    .hero p.lead { color: var(--soft); font-size: 1.08rem; margin: 18px 0 28px; max-width: 44ch; }
+    .hero .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .cat { position: relative; grid-column: span 2; display: flex; flex-direction: column; justify-content: flex-end; min-height: 150px; padding: 14px; border-radius: var(--r);
+      overflow: hidden; border: 0; cursor: pointer; text-align: left; font: inherit; color: var(--ink); background: var(--white); }
+    .cat:nth-child(-n+2) { grid-column: span 3; min-height: 190px; }
+    .cat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .cat:hover img { transform: scale(1.05); }
+    .cat span { position: relative; display: inline-flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; background: rgba(255,255,255,.95); border-radius: 10px; font-weight: 700; font-size: 14px; }
+    .cat span::after { content: "→"; color: var(--blue); }
+    .cat:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+    /* Catalogue */
+    .catalogue { padding-bottom: clamp(56px, 8vw, 96px); scroll-margin-top: 12px; }
+    .filters { position: sticky; top: 0; z-index: 20; background: rgba(245,247,250,.95); backdrop-filter: blur(8px); padding-block: 14px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+    .filters .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tabs button { flex: none; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--white); font: 600 14px "Plus Jakarta Sans", sans-serif; color: var(--soft); cursor: pointer; transition: all .2s; }
+    .tabs button:hover { border-color: var(--ink); color: var(--ink); }
+    .tabs button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .count { flex: none; font-size: 14px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .item { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; animation: pop .3s ease-out both; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+    .item[hidden] { display: none; }
+    .item .img { aspect-ratio: 4 / 3; background: #d6d2ca; }
+    .item img { width: 100%; height: 100%; object-fit: cover; }
+    .item .body { display: flex; flex-direction: column; gap: 4px; flex: 1; padding: 14px 16px 16px; }
+    .item .tag { font-size: 12px; font-weight: 700; color: var(--blue); }
+    .item h3 { font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+    .item a { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; }
+    .item a:hover { color: var(--blue); }
+
+    .missing { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 28px; padding: 24px 28px; background: var(--blue-tint); border-radius: var(--r); }
+    .missing h2 { font-size: 1.3rem; }
+    .missing p { color: var(--soft); }
+
+    /* Services + contact */
+    .bottom { background: var(--white); border-top: 1px solid var(--line); padding-block: clamp(56px, 8vw, 96px); }
+    .bottom .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
+    .bottom h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 20px; }
+    .svc { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+    .svc li { padding: 12px 0; border-top: 1px solid var(--line); font-weight: 600; }
+    .contact { background: var(--bg); border-radius: var(--r); padding: 28px; }
+    .contact dl div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .contact dt { color: var(--muted); font-size: 14px; }
+    .contact dd a { color: var(--ink); font-weight: 700; text-decoration: none; }
+    .contact .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+    footer { padding-block: 22px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); background: var(--white); }
+
+    @media (max-width: 1080px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) {
+      .hero .wrap, .bottom .wrap { grid-template-columns: 1fr; }
+      .nav a:not(.btn) { display: none; }
+      .count { display: none; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .item .body { padding: 12px; }
+      .item h3 { font-size: 15px; }
+      .cats { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .cat, .cat:nth-child(-n+2) { grid-column: auto; min-height: 120px; padding: 8px; }
+      .cat:last-child { grid-column: span 2; }
+      .cat span { font-size: 13px; padding: 8px 10px; }
+      .hero .row .btn { flex: 1 1 100%; }
+      .svc { grid-template-columns: 1fr; }
+      .contact dl div { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media (max-width: 380px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#catalogue">Skip to catalogue</a>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#"><i aria-hidden="true">PM</i>Panchal Motors</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-blue" href="https://wa.me/919426546431">WhatsApp Enquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="kicker">Vehicle body builders · Deesa, Gujarat</p>
+          <h1>Browse our builds by vehicle and body type.</h1>
+          <p class="lead">Pickup and load bodies, ambulances, truck bodies, bumpers and custom work from our workshop at GIDC, Deesa.</p>
+          <div class="row">
+            <a class="btn btn-blue" href="#catalogue">Explore the Catalogue</a>
+            <a class="btn btn-line" href="tel:+919426546431">Call +91 94265 46431</a>
+          </div>
+        </div>
+        <div class="cats" aria-label="Product categories">
+          <button class="cat" type="button" data-go="pickup"><img src="../../assets/img/ph-pickup.svg" alt=""><span>Pickup &amp; load bodies</span></button>
+          <button class="cat" type="button" data-go="ambulance"><img src="../../assets/img/ph-ambulance.svg" alt=""><span>Ambulances</span></button>
+          <button class="cat" type="button" data-go="truck"><img src="../../assets/img/ph-truck.svg" alt=""><span>Truck bodies</span></button>
+          <button class="cat" type="button" data-go="bumper"><img src="../../assets/img/ph-bumper.svg" alt=""><span>Bumpers &amp; guards</span></button>
+          <button class="cat" type="button" data-go="custom"><img src="../../assets/img/ph-suv.svg" alt=""><span>SUV &amp; custom</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue" id="catalogue" aria-labelledby="cat-title">
+      <h2 id="cat-title" class="sr-only">Catalogue</h2>
+      <div class="filters">
+        <div class="wrap">
+          <div class="tabs" role="group" aria-label="Filter by category">
+            <button type="button" data-filter="all" aria-pressed="true">All builds</button>
+            <button type="button" data-filter="pickup" aria-pressed="false">Pickup &amp; load bodies</button>
+            <button type="button" data-filter="ambulance" aria-pressed="false">Ambulances</button>
+            <button type="button" data-filter="truck" aria-pressed="false">Truck bodies</button>
+            <button type="button" data-filter="bumper" aria-pressed="false">Bumpers &amp; guards</button>
+            <button type="button" data-filter="custom" aria-pressed="false">SUV &amp; custom</button>
+          </div>
+          <p class="count" aria-live="polite" id="count"></p>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <!-- Each item: data-cat matches a filter. Swap the placeholder src for a real photo of that build. -->
+        <div class="grid" id="grid">
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Bolero Pik-Up with flat body" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Bolero Pik-Up Flat Body</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Bolero%20Pik-Up%20Flat%20Body">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Bolero Camper with steel body" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Bolero Camper Steel Body</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Bolero%20Camper%20Steel%20Body">Enquire →</a></div></article>
+          <article class="item" data-cat="ambulance"><div class="img"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder: Bolero ambulance" loading="lazy"></div><div class="body"><span class="tag">Ambulance</span><h3>Bolero Ambulance</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Bolero%20Ambulance">Enquire →</a></div></article>
+          <article class="item" data-cat="truck"><div class="img"><img src="../../assets/img/ph-truck.svg" alt="Placeholder: Tata BharatBenz truck body and bumper" loading="lazy"></div><div class="body"><span class="tag">Truck body</span><h3>Tata BharatBenz Body &amp; Bumper</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Tata%20BharatBenz%20Body%20%26%20Bumper">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Isuzu Pik-Up" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Isuzu Pik-Up</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Isuzu%20Pik-Up">Enquire →</a></div></article>
+          <article class="item" data-cat="custom"><div class="img"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: customised Mahindra Thar" loading="lazy"></div><div class="body"><span class="tag">SUV &amp; custom</span><h3>Mahindra Thar</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Mahindra%20Thar">Enquire →</a></div></article>
+          <article class="item" data-cat="bumper"><div class="img"><img src="../../assets/img/ph-bumper.svg" alt="Placeholder: Bolero SLX bumper" loading="lazy"></div><div class="body"><span class="tag">Bumper &amp; guard</span><h3>Bolero SLX Bumper</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Bolero%20SLX%20Bumper">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Maruti Super Carry with steel body" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Maruti Super Carry Steel Body</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Maruti%20Super%20Carry%20Steel%20Body">Enquire →</a></div></article>
+          <article class="item" data-cat="ambulance"><div class="img"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder: ambulance build" loading="lazy"></div><div class="body"><span class="tag">Ambulance</span><h3>Ambulance</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Ambulance">Enquire →</a></div></article>
+          <article class="item" data-cat="truck"><div class="img"><img src="../../assets/img/ph-truck.svg" alt="Placeholder: Ashok Leyland truck build" loading="lazy"></div><div class="body"><span class="tag">Truck body</span><h3>Ashok Leyland</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Ashok%20Leyland">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Tata Yoddha pickup" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Tata Yoddha</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Tata%20Yoddha">Enquire →</a></div></article>
+          <article class="item" data-cat="bumper"><div class="img"><img src="../../assets/img/ph-bumper.svg" alt="Placeholder: eco bumper" loading="lazy"></div><div class="body"><span class="tag">Bumper &amp; guard</span><h3>Eco Bumper</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Eco%20Bumper">Enquire →</a></div></article>
+          <article class="item" data-cat="custom"><div class="img"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: customised Mahindra Scorpio" loading="lazy"></div><div class="body"><span class="tag">SUV &amp; custom</span><h3>Mahindra Scorpio</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Mahindra%20Scorpio">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Tata Ace and Maruti Super Carry body" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Tata Ace &amp; Super Carry Body</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Tata%20Ace%20%26%20Super%20Carry%20Body">Enquire →</a></div></article>
+          <article class="item" data-cat="bumper"><div class="img"><img src="../../assets/img/ph-bumper.svg" alt="Placeholder: car bumper" loading="lazy"></div><div class="body"><span class="tag">Bumper &amp; guard</span><h3>Car Bumper</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Car%20Bumper">Enquire →</a></div></article>
+          <article class="item" data-cat="custom"><div class="img"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: jeep body" loading="lazy"></div><div class="body"><span class="tag">SUV &amp; custom</span><h3>Jeep Body</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Jeep%20Body">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Bolero FB built for carrying a horse" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Bolero FB for Horse</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Bolero%20FB%20for%20Horse">Enquire →</a></div></article>
+          <article class="item" data-cat="custom"><div class="img"><img src="../../assets/img/ph-workshop.svg" alt="Placeholder: hydraulic scissor lift table" loading="lazy"></div><div class="body"><span class="tag">Custom fabrication</span><h3>Hydraulic Scissor Lift Table</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Hydraulic%20Scissor%20Lift%20Table">Enquire →</a></div></article>
+          <article class="item" data-cat="pickup"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: Isuzu Camper" loading="lazy"></div><div class="body"><span class="tag">Pickup &amp; load body</span><h3>Isuzu Camper</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Isuzu%20Camper">Enquire →</a></div></article>
+          <article class="item" data-cat="custom"><div class="img"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: Force Toofan" loading="lazy"></div><div class="body"><span class="tag">Custom work</span><h3>Force Toofan</h3><a href="https://wa.me/919426546431?text=Enquiry%3A%20Force%20Toofan">Enquire →</a></div></article>
+        </div>
+
+        <div class="missing">
+          <div><h2>Don't see your vehicle?</h2><p>Send us the make and model and what you need built.</p></div>
+          <a class="btn btn-blue" href="https://wa.me/919426546431">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom">
+      <div class="wrap">
+        <div id="services">
+          <p class="kicker">Services</p>
+          <h2>Work we take on</h2>
+          <ul class="svc">
+            <li>Body building</li><li>Ambulance builds</li><li>Chassis work</li><li>Full body work</li><li>Paint work</li>
+            <li>Interior work</li><li>Wiring work</li><li>Safety guards</li><li>Accessories</li><li>Custom work</li>
+          </ul>
+        </div>
+        <div class="contact" id="contact">
+          <p class="kicker">Contact</p>
+          <h2>Send an enquiry</h2>
+          <dl>
+            <div><dt>Phone</dt><dd><a href="tel:+919426546431">+91 94265 46431</a> · <a href="tel:+919427640631">+91 94276 40631</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></dd></div>
+            <div><dt>Workshop</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</dd></div>
+            <div><dt>Hours</dt><dd>Mon – Sat, 9:00 am – 6:00 pm</dd></div>
+          </dl>
+          <div class="row">
+            <a class="btn btn-blue" href="https://wa.me/919426546431">WhatsApp</a>
+            <a class="btn btn-line" href="tel:+919426546431">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© Panchal Motors · GIDC, Deesa, Gujarat</div></footer>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll("[data-filter]");
+      var items = document.querySelectorAll("#grid .item");
+      var count = document.getElementById("count");
+      function apply(cat) {
+        var shown = 0;
+        items.forEach(function (it) {
+          var on = cat === "all" || it.dataset.cat === cat;
+          it.hidden = !on;
+          if (on) { shown++; it.style.animation = "none"; it.offsetHeight; it.style.animation = ""; }
+        });
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.filter === cat); });
+        count.textContent = "Showing " + shown + (shown === 1 ? " build" : " builds");
+      }
+      buttons.forEach(function (b) { b.addEventListener("click", function () { apply(b.dataset.filter); }); });
+      document.querySelectorAll("[data-go]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          apply(b.dataset.go);
+          document.getElementById("catalogue").scrollIntoView({ behavior: "smooth" });
+          var t = document.querySelector('[data-filter="' + b.dataset.go + '"]');
+          if (t) t.focus({ preventScroll: true });
+        });
+      });
+      apply("all");
+    })();
+  </script>
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

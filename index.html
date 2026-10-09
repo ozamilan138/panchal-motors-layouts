@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Homepage Layouts — Panchal Motors</title>
+  <meta name="description" content="Fifteen homepage layout concepts for Panchal Motors, vehicle body builders in Deesa. Open each layout or compare them side by side.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/base.css">
+  <style>
+    :root { --bg: #f5f5f2; --white: #fff; --ink: #16181b; --soft: #52565d; --muted: #81858c; --line: #e1e0db; --accent: #c2410c; --gx: clamp(16px, 4vw, 48px); }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Inter", system-ui, sans-serif; padding-bottom: 0; }
+    .wrap { max-width: 1360px; margin: 0 auto; padding-inline: var(--gx); }
+    h1, h2, h3 { letter-spacing: -.025em; line-height: 1.1; }
+
+    header.top { padding-block: clamp(40px, 7vw, 88px) clamp(24px, 4vw, 40px); }
+    .kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    header.top h1 { font-size: clamp(2.2rem, 5.4vw, 4.4rem); font-weight: 700; max-width: 16ch; }
+    header.top p { color: var(--soft); font-size: 1.08rem; max-width: 60ch; margin-top: 16px; }
+    .toolbar { position: sticky; top: 0; z-index: 10; background: rgba(245,245,242,.94); backdrop-filter: blur(8px); border-block: 1px solid var(--line); }
+    .toolbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px; }
+    .jump { display: flex; gap: 6px; flex-wrap: wrap; }
+    .jump a, .seg button, .cmp { display: inline-flex; align-items: center; min-height: 38px; padding: 0 14px; border-radius: 999px; font: 500 14px "Inter", sans-serif; text-decoration: none; color: var(--soft); border: 1px solid var(--line); background: var(--white); cursor: pointer; }
+    .jump a:hover, .cmp:hover { color: var(--ink); border-color: var(--ink); }
+    .tools { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .seg { display: inline-flex; padding: 3px; gap: 2px; background: #eae9e4; border-radius: 999px; }
+    .seg button { border: 0; background: none; min-height: 32px; }
+    .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+    .seg-label { font-size: 13px; color: var(--muted); }
+    .cmp { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .cmp:hover { background: #000; color: #fff; }
+
+    section.group { padding-block: clamp(36px, 5vw, 64px); scroll-margin-top: 64px; }
+    .group-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .group-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); display: flex; align-items: center; gap: 12px; }
+    .badge { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .badge-new { background: var(--accent); color: #fff; }
+    .badge-old { background: #e6e5e0; color: var(--soft); }
+    .group-head p { color: var(--soft); max-width: 52ch; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+    .card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: box-shadow .25s, transform .25s; }
+    .card:hover { box-shadow: 0 14px 36px rgba(22,24,27,.1); transform: translateY(-2px); }
+    .card:focus-within { box-shadow: 0 0 0 3px var(--ink); }
+    .thumb { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #e9e8e3; border-bottom: 1px solid var(--line); }
+    .thumb iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; pointer-events: none; background: #fff; }
+    .thumb .phone { position: absolute; top: 12px; bottom: 12px; left: 50%; transform: translateX(-50%); overflow: hidden; border-radius: 16px; box-shadow: 0 0 0 6px #1d1f22, 0 10px 24px rgba(0,0,0,.18); background: #fff; }
+    .thumb .phone iframe { position: absolute; }
+    .thumb .no-js { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 14px; }
+    .card .body { display: flex; flex-direction: column; flex: 1; padding: 18px 20px 20px; }
+    .card .num { font-size: 13px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .card h3 { font-size: 1.3rem; margin: 2px 0 6px; }
+    .card p { color: var(--soft); font-size: 15px; margin-bottom: 16px; }
+    .card .open { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 18px; border-radius: 10px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; text-decoration: none; transition: background-color .2s; }
+    .card .open:hover { background: var(--accent); }
+    .card .open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    footer { border-top: 1px solid var(--line); }
+    footer .wrap { padding-block: 28px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+    @media (max-width: 640px) { .seg-label { display: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#new">Skip to layouts</a>
+
+  <header class="top">
+    <div class="wrap">
+      <p class="kicker">Panchal Motors · Design review</p>
+      <h1>Homepage layout concepts</h1>
+      <p>Fifteen directions for the Panchal Motors homepage, all using the same real business details. Open any layout to see it full-size. Inside each one, the bar at the bottom leads back here or on to the next layout.</p>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="Gallery tools">
+    <div class="wrap">
+      <div class="jump">
+        <a href="#new">New concepts 08–14</a>
+        <a href="#earlier">Earlier concepts 00–07</a>
+      </div>
+      <div class="tools">
+        <span class="seg-label" id="pv">Preview as</span>
+        <div class="seg" role="group" aria-labelledby="pv">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <a class="cmp" href="compare/">Compare side by side</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="group" id="new" aria-labelledby="new-title">
+      <div class="wrap">
+        <div class="group-head">
+          <h2 id="new-title">New concepts <span class="badge badge-new">Round 2</span></h2>
+          <p>Seven new directions, drawing on industrial manufacturer, catalogue and local-workshop sites for structure.</p>
+        </div>
+        <div class="grid" data-round="2"></div>
+      </div>
+    </section>
+
+    <section class="group" id="earlier" aria-labelledby="old-title">
+      <div class="wrap">
+        <div class="group-head">
+          <h2 id="old-title">Earlier concepts <span class="badge badge-old">Round 1</span></h2>
+          <p>The original homepage draft and the first seven concepts, kept unchanged.</p>
+        </div>
+        <div class="grid" data-round="1"></div>
+      </div>
+    </section>
+
+    <noscript>
+      <div class="wrap" style="padding-bottom:48px">
+        <p>Layouts: <a href="layouts/00/">00</a> · <a href="layouts/01/">01</a> · <a href="layouts/02/">02</a> · <a href="layouts/03/">03</a> · <a href="layouts/04/">04</a> · <a href="layouts/05/">05</a> · <a href="layouts/06/">06</a> · <a href="layouts/07/">07</a> · <a href="layouts/08/">08</a> · <a href="layouts/09/">09</a> · <a href="layouts/10/">10</a> · <a href="layouts/11/">11</a> · <a href="layouts/12/">12</a> · <a href="layouts/13/">13</a> · <a href="layouts/14/">14</a></p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer><div class="wrap"><span>Panchal Motors · GIDC, Deesa, Gujarat</span><span>Image areas are marked placeholders, to be replaced with real workshop photos.</span></div></footer>
+
+  <script src="assets/layouts.js"></script>
+  <script>
+    (function () {
+      var view = "desktop";
+      var esc = function (s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+      // Build the cards from the shared registry in assets/layouts.js.
+      window.LAYOUTS.forEach(function (l) {
+        var grid = document.querySelector('.grid[data-round="' + (l.round === 2 ? 2 : 1) + '"]');
+        var href = window.LAYOUT_ROUTE(l.n);
+        var card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML =
+          '<a class="thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><span class="no-js">Preview loading…</span>' +
+          '<iframe src="' + href + '" title="" loading="lazy" tabindex="-1" scrolling="no"></iframe></a>' +
+          '<div class="body"><span class="num">Layout ' + l.n + '</span><h3>' + esc(l.name) + '</h3><p>' + esc(l.desc) + '</p>' +
+          '<a class="open" href="' + href + '">Open layout ' + l.n + ' <span aria-hidden="true">→</span><span class="sr-only">: ' + esc(l.name) + '</span></a></div>';
+        grid.appendChild(card);
+      });
+
+      // Scale each live preview to fit its thumbnail.
+      function layout() {
+        document.querySelectorAll(".thumb").forEach(function (t) {
+          var f = t.querySelector("iframe");
+          var w = t.clientWidth, h = t.clientHeight;
+          if (view === "desktop") {
+            if (f.parentNode !== t) t.appendChild(f);
+            var ph = t.querySelector(".phone"); if (ph) ph.remove();
+            var s = w / 1440;
+            f.style.width = "1440px"; f.style.height = (h / s) + "px"; f.style.transform = "scale(" + s + ")";
+          } else {
+            var phone = t.querySelector(".phone");
+            if (!phone) { phone = document.createElement("span"); phone.className = "phone"; t.appendChild(phone); phone.appendChild(f); }
+            var ph2 = h - 24, pw = Math.round(ph2 * 390 / 844), s2 = pw / 390;
+            phone.style.width = pw + "px";
+            f.style.width = "390px"; f.style.height = (ph2 / s2) + "px"; f.style.transform = "scale(" + s2 + ")";
+          }
+        });
+      }
+      document.querySelectorAll("[data-view]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          view = b.dataset.view;
+          document.querySelectorAll("[data-view]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+          layout();
+        });
+      });
+      window.addEventListener("resize", layout);
+      layout();
+    })();
+  </script>
+</body>
+</html>

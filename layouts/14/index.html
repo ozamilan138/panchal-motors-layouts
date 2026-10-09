@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Layout 14 · Precision Minimal — Panchal Motors</title>
+  <meta name="description" content="Panchal Motors builds vehicle bodies to order at GIDC, Deesa: body building, ambulances, bumpers and guards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #f4f1ea; --ink: #141414; --soft: #565450; --muted: #8d8a84; --line: #d6d2c8;
+      --gx: clamp(18px, 4.5vw, 72px);
+    }
+    body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 "Inter Tight", system-ui, sans-serif; }
+    h1, h2, h3 { font-weight: 400; letter-spacing: -.045em; line-height: .95; }
+    .wrap { max-width: 1560px; margin: 0 auto; padding-inline: var(--gx); }
+    .meta { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .ul { color: var(--ink); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; padding-bottom: 2px; transition: background-size .3s; }
+    .ul:hover { background-size: 0 1px; background-position: 100% 100%; }
+    .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+    /* Header */
+    .hdr .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; }
+    .logo { font-weight: 600; font-size: 15px; letter-spacing: -.01em; text-decoration: none; }
+    .hdr .meta { text-align: center; }
+    .hdr .end { justify-self: end; display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
+
+    /* Hero */
+    .hero { padding-top: clamp(48px, 9vw, 140px); }
+    .hero h1 { font-size: clamp(3.4rem, 11.5vw, 12.5rem); font-weight: 300; }
+    .hero h1 b { font-weight: 500; }
+    .hero-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: clamp(40px, 6vw, 80px); padding-block: 22px; border-top: 1px solid var(--line); }
+    .hero-meta p { font-size: 15px; color: var(--soft); }
+    .hero-meta p span { display: block; color: var(--muted); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 4px; }
+    .hero-meta .cta { justify-self: end; align-self: center; font-size: 17px; font-weight: 500; }
+    .plate { aspect-ratio: 12 / 5; overflow: hidden; background: #d7d3ca; }
+    .plate img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.35); transform-origin: 55% 58%; }
+
+    /* Services */
+    .section { padding-block: clamp(88px, 13vw, 200px); }
+    .sec-label { display: flex; justify-content: space-between; margin-bottom: clamp(32px, 4vw, 56px); }
+    .svc li { display: grid; grid-template-columns: 80px minmax(0, 1fr) minmax(0, 340px); gap: 24px; align-items: baseline; padding-block: clamp(22px, 3vw, 36px); border-top: 1px solid var(--line); transition: padding-left .35s cubic-bezier(.2,.7,.2,1); }
+    .svc li:last-child { border-bottom: 1px solid var(--line); }
+    .svc li:hover { padding-left: 14px; }
+    .svc .n { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .svc h3 { font-size: clamp(2.2rem, 6vw, 5.4rem); overflow-wrap: anywhere; }
+    .svc p { color: var(--soft); font-size: 15px; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2vw, 28px); align-items: start; }
+    .projects figure { margin: 0; }
+    .projects .img { overflow: hidden; background: #d7d3ca; }
+    .projects img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1.3)); transform-origin: var(--o, 50% 55%); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .projects figure:hover img { transform: scale(calc(var(--z, 1.3) + .06)); }
+    .projects figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font-size: 14px; }
+    .projects figcaption span { color: var(--muted); }
+    .p1 { grid-column: 1 / span 7; }
+    .p1 .img { aspect-ratio: 4 / 3; }
+    .p2 { grid-column: 9 / span 4; margin-top: clamp(80px, 14vw, 240px) !important; }
+    .p2 .img { aspect-ratio: 3 / 4; }
+    .p3 { grid-column: 3 / span 6; margin-top: clamp(40px, 6vw, 96px) !important; }
+    .p3 .img { aspect-ratio: 16 / 9; }
+
+    /* Contact */
+    .contact h2 { font-size: clamp(2.6rem, 8vw, 8.4rem); font-weight: 300; max-width: 11ch; margin-bottom: clamp(40px, 6vw, 80px); }
+    .contact h2 a { font-weight: 500; }
+    .cgrid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+    .cgrid div { padding: 22px 24px 0 0; }
+    .cgrid div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+    .cgrid .meta { margin-bottom: 8px; }
+    .cgrid a { text-decoration: none; }
+    .cgrid a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; padding-block: 28px; margin-top: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .hdr .wrap { grid-template-columns: 1fr auto; }
+      .hdr .meta { display: none; }
+      .hdr .end a:not(:last-child) { display: none; }
+      .hero-meta { grid-template-columns: 1fr 1fr; }
+      .hero-meta .cta { justify-self: start; }
+      .plate { aspect-ratio: 16 / 9; }
+      .svc li { grid-template-columns: 48px 1fr; }
+      .svc p { grid-column: 2; }
+      .projects { grid-template-columns: 1fr 1fr; }
+      .p1 { grid-column: span 2; }
+      .p2, .p3 { grid-column: span 1; margin-top: 0 !important; }
+      .p3 .img { aspect-ratio: 3 / 4; }
+      .cgrid { grid-template-columns: 1fr 1fr; }
+      .cgrid div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .cgrid div:nth-child(n+3) { margin-top: 22px; border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 560px) {
+      .hero-meta { grid-template-columns: 1fr; gap: 14px; }
+      .plate { aspect-ratio: 4 / 3; }
+      .projects { grid-template-columns: 1fr; }
+      .p1, .p2, .p3 { grid-column: auto; }
+      .p2 .img, .p3 .img { aspect-ratio: 4 / 3; }
+      .cgrid { grid-template-columns: 1fr; }
+      .cgrid div, .cgrid div + div { padding: 18px 0 0; border-left: 0; }
+      .cgrid div + div { margin-top: 18px; border-top: 1px solid var(--line); }
+      footer .wrap { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#main">Panchal Motors</a>
+      <span class="meta">Vehicle body builders — Deesa</span>
+      <nav class="end" aria-label="Primary">
+        <a class="ul" href="#services">Services</a>
+        <a class="ul" href="#projects">Projects</a>
+        <a class="ul" href="#contact">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Vehicle bodies,<br><b>built to order.</b></h1>
+        <div class="hero-meta">
+          <p><span>Workshop</span>GIDC, Railway Station Road, Deesa</p>
+          <p><span>Work</span>Body building, ambulances, bumpers &amp; guards</p>
+          <p><span>Hours</span>Mon – Sat, 9 am – 6 pm</p>
+          <a class="cta ul" href="#contact">Request a Quote →</a>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="plate"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder for a tightly cropped photo of a finished pickup load body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="sec-label"><span class="meta">Services</span><span class="meta">03</span></div>
+        <ol class="svc">
+          <li><span class="n">01</span><h3>Body building</h3><p>Load, camper and steel bodies for pickups and light commercial vehicles, with chassis work where needed.</p></li>
+          <li><span class="n">02</span><h3>Ambulances</h3><p>Ambulance builds with body, interior and wiring.</p></li>
+          <li><span class="n">03</span><h3>Bumpers &amp; guards</h3><p>Bumpers and safety guards for cars, SUVs, pickups and trucks.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projects" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-label"><span class="meta">Selected projects</span><span class="meta">Fig. 01 – 03</span></div>
+        <div class="projects">
+          <figure class="p1"><div class="img" style="--z:1.5;--o:50% 50%"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder: close crop of a Bolero ambulance build" loading="lazy"></div><figcaption>Bolero Ambulance <span>Fig. 01</span></figcaption></figure>
+          <figure class="p2"><div class="img" style="--z:1.4;--o:60% 55%"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: close crop of a customised Mahindra Thar" loading="lazy"></div><figcaption>Mahindra Thar <span>Fig. 02</span></figcaption></figure>
+          <figure class="p3"><div class="img" style="--z:1.6;--o:45% 55%"><img src="../../assets/img/ph-truck.svg" alt="Placeholder: close crop of a Tata BharatBenz body and bumper" loading="lazy"></div><figcaption>Tata BharatBenz Body <span>Fig. 03</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="meta" style="margin-bottom:24px">Request a quote</p>
+        <h2>Tell us what you need built. <a class="ul" href="tel:+919426546431">Call&nbsp;us.</a></h2>
+        <div class="cgrid">
+          <div><p class="meta">Phone</p><a href="tel:+919426546431">+91 94265 46431</a><br><a href="tel:+919427640631">+91 94276 40631</a></div>
+          <div><p class="meta">WhatsApp</p><a href="https://wa.me/919426546431">+91 94265 46431</a></div>
+          <div><p class="meta">Email</p><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></div>
+          <div><p class="meta">Workshop</p>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Panchal Motors</span><span>Deesa, Gujarat, India</span></div></footer>
+
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

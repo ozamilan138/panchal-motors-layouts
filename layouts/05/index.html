@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Concept 5 · Minimal — Panchal Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #fcfcfb; --ink: #1a1a1a; --soft: #5c5c5c; --muted: #9a9a9a; --line: #ebebea;
+      --accent: #8a6a3d;
+      --gx: clamp(20px, 6vw, 96px);
+    }
+    body { background: var(--bg); color: var(--ink); font: 300 17px/1.75 "Manrope", system-ui, sans-serif; }
+    h1, h2, h3 { font-weight: 300; letter-spacing: -.025em; line-height: 1.15; }
+    .wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--gx); }
+    .label { font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .link { font-weight: 500; font-size: 15px; text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid var(--ink); }
+    .link:hover { color: var(--accent); border-color: var(--accent); }
+
+    header .wrap { display: flex; justify-content: space-between; align-items: center; height: 96px; }
+    .logo { font-weight: 500; font-size: 15px; letter-spacing: .22em; text-transform: uppercase; text-decoration: none; }
+    header nav { display: flex; gap: 40px; font-size: 14px; font-weight: 400; }
+    header nav a { text-decoration: none; color: var(--soft); }
+    header nav a:hover { color: var(--ink); }
+    header nav a.cta { color: var(--ink); font-weight: 500; }
+
+    /* Hero */
+    .hero { padding-block: clamp(64px, 12vw, 168px) clamp(56px, 8vw, 112px); }
+    .hero .label { margin-bottom: 36px; }
+    .hero h1 { font-size: clamp(2.4rem, 5.2vw, 4.6rem); max-width: 17ch; }
+    .hero .foot { display: flex; gap: 48px; margin-top: 56px; align-items: center; flex-wrap: wrap; }
+    .hero .foot p { color: var(--soft); max-width: 38ch; font-size: 16px; }
+
+    .feature .ph { aspect-ratio: 16 / 8; }
+
+    .section { padding-block: clamp(96px, 14vw, 200px); }
+
+    /* Services: two quiet columns */
+    .svc { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(40px, 8vw, 128px); }
+    .svc h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-top: 24px; max-width: 12ch; }
+    .svc ol { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 5vw, 72px); counter-reset: s; }
+    .svc li { counter-increment: s; display: flex; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); font-size: 18px; }
+    .svc li::before { content: counter(s, decimal-leading-zero); font-size: 12px; color: var(--muted); padding-top: 6px; letter-spacing: .08em; }
+
+    /* Work: two offset frames */
+    .work-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(48px, 6vw, 80px); gap: 24px; flex-wrap: wrap; }
+    .work-head h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-top: 24px; }
+    .pair { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+    .pair figure:nth-child(2) { margin-top: clamp(80px, 12vw, 200px); }
+    .pair .ph { aspect-ratio: 4 / 5; }
+    .pair figure:first-child .ph { aspect-ratio: 5 / 6; }
+    figcaption { display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; }
+    figcaption span { color: var(--muted); }
+    .more-work { margin-top: clamp(48px, 6vw, 80px); color: var(--soft); font-size: 15px; }
+
+    /* About statement */
+    .about { text-align: center; }
+    .about p.statement { font-size: clamp(1.5rem, 2.8vw, 2.3rem); line-height: 1.45; max-width: 30ch; margin: 32px auto 0; letter-spacing: -.015em; }
+    .about p.makes { margin-top: 40px; color: var(--muted); font-size: 14px; letter-spacing: .04em; }
+
+    /* Contact */
+    .contact { border-top: 1px solid var(--line); }
+    .contact .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: end; }
+    .contact h2 { font-size: clamp(2.2rem, 5vw, 4.2rem); margin: 28px 0 40px; max-width: 12ch; }
+    .contact .big { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 400; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; word-break: break-all; }
+    .contact .big:hover { color: var(--accent); border-color: var(--accent); }
+    .contact .phones { margin-top: 28px; display: flex; gap: 32px; flex-wrap: wrap; font-size: 16px; }
+    .contact .phones a { text-decoration: none; }
+    .contact dl div { padding: 18px 0; border-top: 1px solid var(--line); font-size: 15px; }
+    .contact dt { margin-bottom: 4px; }
+    .contact dd { color: var(--soft); }
+
+    footer .wrap { padding-top: 40px; padding-bottom: 40px; font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 860px) {
+      header nav a:not(.cta) { display: none; }
+      .svc, .contact .grid { grid-template-columns: 1fr; }
+      .feature .ph { aspect-ratio: 4 / 3; }
+    }
+    @media (max-width: 600px) {
+      header .wrap { height: 72px; }
+      .logo { letter-spacing: .16em; }
+      .svc ol { grid-template-columns: 1fr; }
+      .pair { grid-template-columns: 1fr; }
+      .pair figure:nth-child(2) { margin-top: 0; width: 80%; margin-left: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#">Panchal Motors</a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">Enquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="label">Vehicle Body Building — Deesa, Gujarat</p>
+      <h1>Vehicle bodies, built from the chassis up.</h1>
+      <div class="foot">
+        <a class="link" href="#contact">Start an enquiry →</a>
+        <p>Body building, ambulances, chassis work and finishing for commercial and utility vehicles.</p>
+      </div>
+    </section>
+
+    <section class="feature wrap">
+      <div class="ph" data-label="Single hero photograph"></div>
+    </section>
+
+    <section class="section wrap" id="services">
+      <div class="svc">
+        <div>
+          <p class="label">Services</p>
+          <h2>What we do.</h2>
+        </div>
+        <ol>
+          <li>Body building</li>
+          <li>Ambulance bodies</li>
+          <li>Chassis work</li>
+          <li>Full body &amp; paint work</li>
+          <li>Interior &amp; wiring</li>
+          <li>Guards, accessories &amp; custom work</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap" id="work">
+      <div class="work-head">
+        <div>
+          <p class="label">Selected Work</p>
+          <h2>Recent builds.</h2>
+        </div>
+        <a class="link" href="#contact">Discuss a build →</a>
+      </div>
+      <div class="pair">
+        <figure><div class="ph"></div><figcaption>Ambulance <span>Body &amp; interior</span></figcaption></figure>
+        <figure><div class="ph"></div><figcaption>Mahindra Thar <span>Custom work</span></figcaption></figure>
+      </div>
+      <p class="more-work">Also: Tata Yoddha · Isuzu Pik-Up · Mahindra Scorpio</p>
+    </section>
+
+    <section class="section about wrap" id="about">
+      <p class="label">About</p>
+      <p class="statement">Panchal Motors is a vehicle body-building workshop at GIDC, Deesa, taking each vehicle from chassis to finished body.</p>
+      <p class="makes">Mahindra · Tata · Maruti · Hyundai · Toyota · Eicher</p>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap grid">
+        <div>
+          <p class="label">Contact</p>
+          <h2>Let's talk about your vehicle.</h2>
+          <a class="big" href="mailto:jmpanchal76@gmail.com?subject=Vehicle%20body%20enquiry">jmpanchal76@gmail.com</a>
+          <div class="phones">
+            <a href="tel:+919426546431">+91 94265 46431</a>
+            <a href="tel:+919427640631">+91 94276 40631</a>
+          </div>
+        </div>
+        <dl>
+          <div><dt>Workshop</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</dd></div>
+          <div><dt>Hours</dt><dd>Monday – Saturday, 9 am – 6 pm</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© Panchal Motors</div></footer>
+
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

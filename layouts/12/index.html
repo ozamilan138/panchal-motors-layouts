@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Layout 12 · Commercial Conversion — Panchal Motors</title>
+  <meta name="description" content="Load bodies, chassis work, ambulance builds, bumpers and fit-out for commercial vehicles and fleets. Panchal Motors, GIDC, Deesa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #f6f7f7; --white: #fff; --ink: #172026; --soft: #4a565e; --muted: #73808a; --line: #dfe4e6;
+      --teal: #0d6b62; --teal-dark: #09524b; --teal-tint: #e3f1ef; --wa: #157a3c;
+      --gx: clamp(16px, 4vw, 40px); --r: 12px;
+    }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Figtree", system-ui, sans-serif; }
+    h1, h2, h3 { letter-spacing: -.025em; line-height: 1.08; }
+    .wrap { max-width: 1220px; margin: 0 auto; padding-inline: var(--gx); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 22px; border-radius: 10px;
+      font: 700 15px "Figtree", sans-serif; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: background-color .2s, border-color .2s; }
+    .btn-teal { background: var(--teal); color: #fff; }
+    .btn-teal:hover { background: var(--teal-dark); }
+    .btn-wa { background: var(--wa); color: #fff; }
+    .btn-wa:hover { background: #0f5f2e; }
+    .btn-line { background: var(--white); border-color: var(--line); color: var(--ink); }
+    .btn-line:hover { border-color: var(--ink); }
+    .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+
+    /* Header */
+    .hdr { background: var(--white); border-bottom: 1px solid var(--line); }
+    .hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 16px; }
+    .logo { display: flex; flex-direction: column; text-decoration: none; line-height: 1.15; }
+    .logo b { font-size: 19px; font-weight: 800; }
+    .logo small { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .hdr nav { display: flex; align-items: center; gap: 26px; font-size: 15px; font-weight: 600; }
+    .hdr nav a:not(.btn) { color: var(--soft); text-decoration: none; }
+    .hdr nav a:not(.btn):hover { color: var(--ink); }
+    .hdr .btn { min-height: 42px; }
+
+    /* Hero */
+    .hero { background: var(--white); border-bottom: 1px solid var(--line); }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 6vw, 80px); }
+    .hero h1 { font-size: clamp(2.3rem, 4.8vw, 3.9rem); font-weight: 800; }
+    .hero .lead { font-size: 1.12rem; color: var(--soft); margin: 18px 0 24px; max-width: 46ch; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom: 28px; }
+    .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+    .checks li::before { content: ""; flex: none; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%;
+      background: var(--teal-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%230d6b62' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat; }
+    .hero-img { aspect-ratio: 16 / 7; border-radius: var(--r); overflow: hidden; }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .quote { background: var(--white); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 18px 40px rgba(23,32,38,.08); padding: clamp(20px, 3vw, 32px); }
+    .quote h2 { font-size: 1.5rem; margin-bottom: 4px; }
+    .quote > p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    .field { display: grid; gap: 6px; margin-bottom: 14px; }
+    .field label { font-size: 14px; font-weight: 600; }
+    .field select, .field input { width: 100%; min-height: 48px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--white); font: 500 15px "Figtree", sans-serif; color: var(--ink); }
+    .field select:focus, .field input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-tint); }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quote .btn { width: 100%; margin-top: 6px; }
+    .quote .or { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-top: 14px; font-size: 14px; color: var(--muted); }
+    .quote .or a { color: var(--ink); font-weight: 700; text-decoration: none; }
+
+    /* Sections */
+    .section { padding-block: clamp(56px, 8vw, 100px); }
+    .sh { max-width: 640px; margin-bottom: 32px; }
+    .sh h2 { font-size: clamp(1.8rem, 3.4vw, 2.7rem); }
+    .sh p { color: var(--soft); margin-top: 10px; }
+
+    .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .type { background: var(--white); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .type .img { aspect-ratio: 3 / 2; }
+    .type img { width: 100%; height: 100%; object-fit: cover; }
+    .type div.b { padding: 16px 18px 20px; }
+    .type h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .type p { font-size: 14px; color: var(--muted); }
+
+    .options { background: var(--white); border-block: 1px solid var(--line); }
+    .opt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .opt { padding: 22px; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg); }
+    .opt h3 { font-size: 1.1rem; margin-bottom: 12px; }
+    .opt ul { display: flex; flex-wrap: wrap; gap: 6px; }
+    .opt li { padding: 6px 12px; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 500; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: s; }
+    .steps li { counter-increment: s; position: relative; padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); }
+    .steps li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 14px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 800; }
+    .steps li:not(:last-child)::after { content: "→"; position: absolute; right: -12px; top: 26px; z-index: 1; width: 22px; height: 22px; display: grid; place-items: center; background: var(--bg); color: var(--muted); font-size: 14px; }
+    .steps h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .steps p { color: var(--soft); font-size: 15px; }
+
+    .adv { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
+    .adv div { padding: 22px 22px 0 0; }
+    .adv div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+    .adv b { display: block; font-size: 1.15rem; letter-spacing: -.015em; margin-bottom: 6px; }
+    .adv p { color: var(--soft); font-size: 15px; }
+
+    .direct { background: var(--teal); color: #fff; }
+    .direct .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; padding-block: clamp(48px, 7vw, 88px); }
+    .direct .label { color: #bfe3dd; }
+    .direct h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 14px; }
+    .direct p { color: rgba(255,255,255,.82); }
+    .direct .phone { display: inline-block; margin-top: 18px; font-size: clamp(1.6rem, 3.4vw, 2.4rem); font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.02em; }
+    .direct .card { background: var(--white); color: var(--ink); border-radius: 16px; padding: 24px; }
+    .direct .card .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .direct dl div { display: grid; grid-template-columns: 84px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+    .direct dt { color: var(--muted); }
+    .direct dd a { color: var(--ink); font-weight: 700; text-decoration: none; }
+
+    footer .wrap { padding-block: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 1000px) {
+      .hero .wrap, .direct .wrap { grid-template-columns: 1fr; }
+      .types, .steps, .adv { grid-template-columns: 1fr 1fr; }
+      .steps li:not(:last-child)::after { display: none; }
+      .adv div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .adv div:nth-child(n+3) { padding-top: 22px; }
+      .opt-grid { grid-template-columns: 1fr 1fr; }
+      .hdr nav a:not(.btn) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .checks, .types, .steps, .adv, .opt-grid, .two { grid-template-columns: 1fr; }
+      .adv div, .adv div + div { padding: 18px 0 0; border-left: 0; }
+      .logo small { display: none; }
+      .direct .card .row { grid-template-columns: 1fr; }
+      .direct dl div { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#main"><b>Panchal Motors</b><small>Commercial vehicle body building</small></a>
+      <nav aria-label="Primary">
+        <a href="#vehicles">Vehicles</a>
+        <a href="#options">Options</a>
+        <a href="#process">Process</a>
+        <a class="btn btn-teal" href="tel:+919426546431">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="label">For fleets &amp; commercial vehicles</p>
+          <h1>Bodies and fit-outs that keep commercial vehicles working.</h1>
+          <p class="lead">Load bodies, chassis work, ambulance builds, bumpers and fit-out for pickups, light commercial vehicles and trucks, from one workshop in Deesa.</p>
+          <ul class="checks">
+            <li>Load &amp; steel bodies</li>
+            <li>Chassis work</li>
+            <li>Bumpers &amp; safety guards</li>
+            <li>Paint, wiring &amp; accessories</li>
+          </ul>
+          <div class="hero-img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder for a photo of a commercial pickup with a new load body"></div>
+        </div>
+
+        <form class="quote" id="quote" aria-labelledby="quote-title">
+          <h2 id="quote-title">Request a quote</h2>
+          <p>Fill in the basics and send it to us on WhatsApp.</p>
+          <div class="field">
+            <label for="q-vehicle">Vehicle type</label>
+            <select id="q-vehicle" name="vehicle">
+              <option>Pickup</option>
+              <option>Small commercial (e.g. Tata Ace, Super Carry)</option>
+              <option>Truck</option>
+              <option>Ambulance</option>
+              <option>Car / SUV</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="q-need">What do you need?</label>
+            <select id="q-need" name="need">
+              <option>New load body</option>
+              <option>Ambulance build</option>
+              <option>Chassis work</option>
+              <option>Bumper or safety guard</option>
+              <option>Paint &amp; body work</option>
+              <option>Interior / wiring / accessories</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="q-qty">Number of vehicles</label>
+              <input id="q-qty" name="qty" type="number" min="1" value="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="q-name">Your name</label>
+              <input id="q-name" name="name" type="text" autocomplete="name">
+            </div>
+          </div>
+          <button class="btn btn-wa" type="submit">Send on WhatsApp</button>
+          <p class="or"><span>Prefer to talk?</span><a href="tel:+919426546431">+91 94265 46431</a></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="vehicles">
+      <div class="wrap">
+        <div class="sh"><p class="label">Vehicle types</p><h2>Vehicles we build for</h2></div>
+        <div class="types">
+          <article class="type"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: pickup with load body" loading="lazy"></div><div class="b"><h3>Pickups</h3><p>Bolero, Isuzu, Tata Yoddha</p></div></article>
+          <article class="type"><div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder: small commercial vehicle with steel body" loading="lazy"></div><div class="b"><h3>Small commercial</h3><p>Tata Ace, Maruti Super Carry</p></div></article>
+          <article class="type"><div class="img"><img src="../../assets/img/ph-truck.svg" alt="Placeholder: truck body" loading="lazy"></div><div class="b"><h3>Trucks</h3><p>Tata BharatBenz, Ashok Leyland</p></div></article>
+          <article class="type"><div class="img"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder: ambulance build" loading="lazy"></div><div class="b"><h3>Ambulances</h3><p>Bolero ambulance builds</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section options" id="options">
+      <div class="wrap">
+        <div class="sh"><p class="label">Customisation options</p><h2>Choose what your vehicle needs</h2></div>
+        <div class="opt-grid">
+          <div class="opt"><h3>Body</h3><ul><li>Flat body</li><li>Steel body</li><li>Camper body</li><li>Long-side body</li></ul></div>
+          <div class="opt"><h3>Special-purpose</h3><ul><li>Horse carrier</li><li>Ambulance</li><li>Hydraulic scissor lift table</li></ul></div>
+          <div class="opt"><h3>Structure</h3><ul><li>Chassis work</li><li>Full body work</li></ul></div>
+          <div class="opt"><h3>Protection</h3><ul><li>Bumpers</li><li>Safety guards</li></ul></div>
+          <div class="opt"><h3>Fit-out</h3><ul><li>Interior work</li><li>Wiring work</li><li>Accessories</li></ul></div>
+          <div class="opt"><h3>Finish</h3><ul><li>Paint work</li><li>Custom work</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="sh"><p class="label">Process</p><h2>From enquiry to a working vehicle</h2></div>
+        <ol class="steps">
+          <li><h3>Send your requirement</h3><p>Vehicle, body type and number of vehicles.</p></li>
+          <li><h3>Discuss at the workshop</h3><p>Bring the vehicle to GIDC, Deesa.</p></li>
+          <li><h3>Build</h3><p>Chassis, body, paint and fit-out.</p></li>
+          <li><h3>Collect</h3><p>Pick up the finished vehicle.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="sh"><p class="label">Why Panchal Motors</p><h2>Practical reasons to work with us</h2></div>
+        <div class="adv">
+          <div><b>One workshop</b><p>Chassis, body, paint, wiring and accessories in one place.</p></div>
+          <div><b>Many makes</b><p>Mahindra, Tata, Maruti, Hyundai, Toyota and Eicher.</p></div>
+          <div><b>Local to Deesa</b><p>At GIDC, Railway Station Road.</p></div>
+          <div><b>Six days a week</b><p>Open Monday to Saturday, 9 am – 6 pm.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direct" id="contact">
+      <div class="wrap">
+        <div>
+          <p class="label">Direct contact</p>
+          <h2>Talk to the workshop about your vehicles.</h2>
+          <p>Call, WhatsApp or email with your requirement.</p>
+          <a class="phone" href="tel:+919426546431">+91 94265 46431</a>
+        </div>
+        <div class="card">
+          <div class="row">
+            <a class="btn btn-wa" href="https://wa.me/919426546431">WhatsApp</a>
+            <a class="btn btn-line" href="mailto:jmpanchal76@gmail.com?subject=Commercial%20vehicle%20enquiry">Email</a>
+          </div>
+          <dl>
+            <div><dt>Phone</dt><dd><a href="tel:+919426546431">+91 94265 46431</a> · <a href="tel:+919427640631">+91 94276 40631</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></dd></div>
+            <div><dt>Address</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</dd></div>
+            <div><dt>Hours</dt><dd>Mon – Sat, 9:00 am – 6:00 pm</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Panchal Motors</span><span>GIDC, Deesa, Gujarat</span></div></footer>
+
+  <script>
+    // Front-end only: compose the enquiry and open it in WhatsApp.
+    document.getElementById("quote").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var msg = "Hello Panchal Motors, I'd like a quote.\n" +
+        "Vehicle type: " + f.vehicle.value + "\n" +
+        "Requirement: " + f.need.value + "\n" +
+        "Number of vehicles: " + (f.qty.value || "1") +
+        (f.name.value.trim() ? "\nName: " + f.name.value.trim() : "");
+      window.open("https://wa.me/919426546431?text=" + encodeURIComponent(msg), "_blank", "noopener");
+    });
+  </script>
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

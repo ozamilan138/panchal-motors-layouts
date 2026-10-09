@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <title>Compare Layouts — Panchal Motors</title>
+  <link rel="stylesheet" href="../assets/base.css">
+  <style>
+    body { background: #ebeae6; color: #16181b; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; padding-bottom: 0; }
+    .bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 20px; background: #fff; border-bottom: 1px solid #d9d8d3; }
+    .bar h1 { font-size: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .back { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; background: #16181b; color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+    .seg { display: inline-flex; padding: 3px; background: #f0efeb; border-radius: 8px; }
+    .seg button { border: 0; background: none; padding: 7px 12px; border-radius: 6px; font: inherit; font-weight: 500; color: #5a5f66; cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: #16181b; color: #fff; }
+    .grid { display: grid; gap: 16px; padding: 16px 20px 40px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+    body.mobile .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+    .card { background: #fff; border: 1px solid #d9d8d3; border-radius: 10px; overflow: hidden; }
+    .card[hidden] { display: none; }
+    .card header { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid #e6e5e0; }
+    .card header b { font-weight: 600; }
+    .card header .new { margin-left: 6px; padding: 2px 7px; border-radius: 999px; background: #c2410c; color: #fff; font-size: 11px; font-weight: 700; }
+    .card header a { font-size: 13px; color: #9a3412; text-decoration: none; font-weight: 600; white-space: nowrap; }
+    .card header a:hover { text-decoration: underline; }
+    .frame { position: relative; overflow: hidden; }
+    .frame iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <h1><a class="back" href="../">← All layouts</a> Compare layouts side by side</h1>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Preview width">
+        <button type="button" data-w="1440" aria-pressed="true">Desktop</button>
+        <button type="button" data-w="390" aria-pressed="false">Mobile</button>
+      </div>
+      <div class="seg" role="group" aria-label="Which layouts">
+        <button type="button" data-show="all" aria-pressed="true">All</button>
+        <button type="button" data-show="2" aria-pressed="false">New</button>
+        <button type="button" data-show="1" aria-pressed="false">Earlier</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="grid" id="grid" aria-label="Layout previews (scroll inside each one)"></main>
+
+  <script src="../assets/layouts.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById("grid");
+      var width = 1440;
+      window.LAYOUTS.forEach(function (l) {
+        var href = window.LAYOUT_ROUTE(l.n);
+        var card = document.createElement("section");
+        card.className = "card";
+        card.dataset.round = l.round === 2 ? "2" : "1";
+        card.innerHTML =
+          '<header><b>' + l.n + ' · ' + l.name + (l.round === 2 ? '<span class="new">New</span>' : '') + '</b>' +
+          '<a href="' + href + '">Open full page →</a></header>' +
+          '<div class="frame"><iframe src="' + href + '" title="Preview of layout ' + l.n + ', ' + l.name + '" loading="lazy"></iframe></div>';
+        grid.appendChild(card);
+      });
+
+      // Render each page at a real viewport width, scaled to fit its card.
+      function layout() {
+        grid.querySelectorAll(".frame").forEach(function (f) {
+          var w = f.clientWidth;
+          var viewH = width === 1440 ? 900 : 844;
+          var h = Math.round(w * (viewH / width) * (width === 1440 ? 1.15 : 1));
+          f.style.height = h + "px";
+          var s = w / width, i = f.querySelector("iframe");
+          i.style.width = width + "px"; i.style.height = (h / s) + "px"; i.style.transform = "scale(" + s + ")";
+        });
+      }
+      document.querySelectorAll("[data-w]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          width = +b.dataset.w;
+          document.body.classList.toggle("mobile", width < 1000);
+          document.querySelectorAll("[data-w]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+          requestAnimationFrame(layout);
+        });
+      });
+      document.querySelectorAll("[data-show]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.dataset.show;
+          document.querySelectorAll("[data-show]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+          grid.querySelectorAll(".card").forEach(function (c) { c.hidden = v !== "all" && c.dataset.round !== v; });
+          requestAnimationFrame(layout);
+        });
+      });
+      window.addEventListener("resize", layout);
+      layout();
+    })();
+  </script>
+</body>
+</html>

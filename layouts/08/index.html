@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Layout 08 · Industrial Flagship — Panchal Motors</title>
+  <meta name="description" content="Panchal Motors, vehicle body builders at GIDC, Deesa: pickup and load bodies, ambulances, truck body work, chassis work, paint and fit-out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #f4f4f2; --white: #fff; --ink: #17191c; --soft: #50545b; --muted: #7d828a;
+      --line: #dcdcd8; --red: #c8102e; --red-dark: #a10c24; --char: #1b1d21;
+      --wrap: 1280px; --gx: clamp(16px, 4vw, 48px);
+    }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.6 "Inter", system-ui, sans-serif; }
+    h1, h2, h3 { font-family: "Sora", sans-serif; letter-spacing: -.03em; line-height: 1.04; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gx); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; font: 600 12px "Sora", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--red); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px;
+      font: 600 15px "Sora", sans-serif; text-decoration: none; border: 1.5px solid transparent; border-radius: 2px; transition: background-color .2s, color .2s, border-color .2s; }
+    .btn-red { background: var(--red); color: #fff; }
+    .btn-red:hover { background: var(--red-dark); }
+    .btn-dark { background: var(--char); color: #fff; }
+    .btn-dark:hover { background: #000; }
+    .btn-line { border-color: var(--ink); color: var(--ink); }
+    .btn-line:hover { background: var(--ink); color: #fff; }
+
+    /* Header */
+    .hdr { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 800 17px "Sora", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+    .logo i { width: 6px; height: 28px; background: var(--red); }
+    .nav { display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500; }
+    .nav a:not(.btn) { color: var(--soft); text-decoration: none; }
+    .nav a:not(.btn):hover { color: var(--ink); }
+    .nav .btn { min-height: 44px; padding: 0 20px; }
+
+    /* Hero */
+    .hero { padding-top: clamp(40px, 6vw, 80px); }
+    .hero-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(28px, 4vw, 48px); }
+    .hero h1 { font-size: clamp(2.7rem, 6.6vw, 6rem); font-weight: 800; }
+    .hero h1 span { color: var(--red); }
+    .hero-side p { color: var(--soft); font-size: 1.08rem; margin-bottom: 24px; max-width: 40ch; }
+    .hero-side .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cinema { position: relative; margin-inline: auto; max-width: 1600px; padding-inline: clamp(0px, 2vw, 24px); }
+    .cinema-frame { position: relative; aspect-ratio: 21 / 9; overflow: hidden; background: #cfcbc2; }
+    .cinema-frame img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: settle 1.6s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes settle { to { transform: scale(1); } }
+    .cinema-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(17,18,20,.55)); }
+    .cinema-tags { position: absolute; left: clamp(16px, 4vw, 64px); bottom: clamp(16px, 3vw, 40px); z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; }
+    .cinema-tags span { padding: 8px 14px; background: rgba(255,255,255,.94); font: 600 13px "Sora", sans-serif; }
+
+    .strip { background: var(--char); color: #fff; }
+    .strip .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .strip div { padding: 22px 20px 22px 0; }
+    .strip div + div { padding-left: 20px; border-left: 1px solid rgba(255,255,255,.14); }
+    .strip dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 4px; }
+    .strip dd { font-weight: 500; }
+    .strip a { color: #fff; text-decoration: none; }
+
+    /* Sections */
+    .section { padding-block: clamp(72px, 10vw, 128px); }
+    .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+    .sec-head h2 { font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 700; max-width: 14ch; }
+    .sec-head p { color: var(--soft); max-width: 44ch; justify-self: end; }
+
+    /* Capabilities */
+    .caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .cap { position: relative; background: var(--white); padding: 32px 28px 36px; transition: background-color .2s; }
+    .cap::before { content: ""; position: absolute; left: 0; top: 0; width: 0; height: 3px; background: var(--red); transition: width .3s; }
+    .cap:hover::before { width: 100%; }
+    .cap svg { width: 36px; height: 36px; stroke: var(--ink); fill: none; stroke-width: 1.6; margin-bottom: 28px; }
+    .cap h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -.015em; }
+    .cap p { color: var(--soft); font-size: 15px; }
+    .cap .n { position: absolute; top: 28px; right: 28px; font: 600 13px "Sora", sans-serif; color: var(--muted); }
+
+    /* Products */
+    .products { background: var(--white); border-block: 1px solid var(--line); }
+    .prod-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
+    .prod { display: flex; flex-direction: column; background: var(--bg); }
+    .prod .img { aspect-ratio: 4 / 3; overflow: hidden; }
+    .prod:first-child .img { aspect-ratio: auto; flex: 1; min-height: 280px; }
+    .prod img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .prod:hover img { transform: scale(1.03); }
+    .prod .body { padding: 22px 24px 26px; }
+    .prod .cat { font: 600 12px "Sora", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+    .prod h3 { font-size: 1.45rem; font-weight: 700; margin: 8px 0 12px; }
+    .prod ul { font-size: 14px; color: var(--soft); }
+    .prod li { padding: 6px 0; border-top: 1px solid var(--line); }
+
+    /* Process */
+    .process ol { display: grid; grid-template-columns: repeat(5, 1fr); counter-reset: s; position: relative; }
+    .process ol::before { content: ""; position: absolute; left: 0; right: 0; top: 23px; height: 2px; background: var(--line); }
+    .process li { position: relative; counter-increment: s; padding-right: 24px; }
+    .process li::before { content: counter(s, decimal-leading-zero); position: relative; display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 24px;
+      background: var(--bg); border: 2px solid var(--ink); border-radius: 50%; font: 700 14px "Sora", sans-serif; }
+    .process li:first-child::before { background: var(--red); border-color: var(--red); color: #fff; }
+    .process h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+    .process p { color: var(--soft); font-size: 15px; }
+
+    .makes { border-top: 1px solid var(--line); padding-top: 32px; margin-top: clamp(56px, 7vw, 88px); display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 36px; }
+    .makes span:first-child { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); width: 100%; }
+    .makes b { font: 700 clamp(1.4rem, 3vw, 2.2rem) "Sora", sans-serif; letter-spacing: -.02em; color: #b3b5b9; }
+
+    /* Enquiry */
+    .enquiry .wrap { display: grid; grid-template-columns: 1.2fr 1fr; padding-inline: 0; }
+    .enq-main { background: var(--red); color: #fff; padding: clamp(40px, 6vw, 80px) var(--gx); }
+    .enq-main .eyebrow { color: #fff; }
+    .enq-main .eyebrow::before { background: #fff; }
+    .enq-main h2 { font-size: clamp(2.2rem, 4.6vw, 4rem); font-weight: 800; max-width: 12ch; margin-bottom: 20px; }
+    .enq-main p { color: rgba(255,255,255,.85); max-width: 40ch; margin-bottom: 32px; }
+    .enq-main .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .enq-main .btn-white { background: #fff; color: var(--red); }
+    .enq-main .btn-white:hover { background: var(--char); color: #fff; }
+    .enq-main .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; }
+    .enq-main .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+    .enq-side { background: var(--white); padding: clamp(40px, 6vw, 80px) var(--gx); }
+    .enq-side div { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .enq-side div:first-child { padding-top: 0; }
+    .enq-side dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .enq-side dd a { color: var(--ink); text-decoration: none; font-weight: 600; }
+    .enq-side dd a:hover { color: var(--red); }
+
+    footer { background: var(--char); color: rgba(255,255,255,.6); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+
+    @media (max-width: 1000px) {
+      .hero-top, .sec-head { grid-template-columns: 1fr; }
+      .sec-head p { justify-self: start; }
+      .cinema-frame { aspect-ratio: 16 / 9; }
+      .strip .wrap { grid-template-columns: 1fr 1fr; }
+      .strip div:nth-child(3) { padding-left: 0; border-left: 0; }
+      .strip div:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.14); }
+      .caps { grid-template-columns: 1fr 1fr; }
+      .prod-grid { grid-template-columns: 1fr 1fr; }
+      .prod:first-child { grid-column: span 2; }
+      .prod:first-child .img { aspect-ratio: 16 / 9; flex: none; min-height: 0; }
+      .process ol { grid-template-columns: 1fr; gap: 0; }
+      .process ol::before { left: 23px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+      .process li { display: grid; grid-template-columns: 48px 1fr; column-gap: 20px; padding: 0 0 28px; }
+      .process li::before { grid-row: span 2; margin: 0; }
+      .enquiry .wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav a:not(.btn) { display: none; }
+      .logo { font-size: 15px; }
+      .nav .btn { padding: 0 14px; font-size: 14px; }
+      .cinema-frame { aspect-ratio: 4 / 3; }
+      .cinema-tags span { font-size: 12px; padding: 6px 10px; }
+      .hero-side .row .btn, .enq-main .row .btn { flex: 1 1 100%; }
+      .strip .wrap { grid-template-columns: 1fr; }
+      .strip div, .strip div + div { padding: 16px 0; border-left: 0; }
+      .strip div + div { border-top: 1px solid rgba(255,255,255,.14); }
+      .caps, .prod-grid { grid-template-columns: 1fr; }
+      .prod:first-child { grid-column: auto; }
+      .prod:first-child .img { aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#main"><i aria-hidden="true"></i>Panchal Motors</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a class="btn btn-red" href="#enquiry">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-top">
+        <div>
+          <p class="eyebrow">Vehicle body builders · GIDC, Deesa</p>
+          <h1>Built for the load. <span>Finished</span> for the road.</h1>
+        </div>
+        <div class="hero-side">
+          <p>Pickup and load bodies, ambulances, truck body work, chassis work, paint and fit-out for commercial and passenger vehicles.</p>
+          <div class="row">
+            <a class="btn btn-red" href="#enquiry">Request a Quote</a>
+            <a class="btn btn-line" href="#products">View Products</a>
+          </div>
+        </div>
+      </div>
+      <div class="cinema">
+        <div class="cinema-frame">
+          <img src="../../assets/img/ph-truck.svg" alt="Placeholder for a wide workshop photo of a finished commercial truck body">
+        </div>
+        <div class="cinema-tags" aria-hidden="true">
+          <span>Pickup bodies</span><span>Ambulances</span><span>Truck bodies</span><span>Custom fabrication</span>
+        </div>
+      </div>
+      <dl class="strip">
+        <div class="wrap">
+          <div><dt>Workshop</dt><dd>GIDC, Railway Station Road, Deesa</dd></div>
+          <div><dt>Hours</dt><dd>Mon – Sat, 9:00 am – 6:00 pm</dd></div>
+          <div><dt>Call</dt><dd><a href="tel:+919426546431">+91 94265 46431</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/919426546431">Message us</a></dd></div>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Capabilities</p><h2>One workshop, chassis to finish.</h2></div>
+          <p>Each capability can be taken on its own, or combined into a complete build.</p>
+        </div>
+        <div class="caps">
+          <article class="cap"><span class="n">01</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><rect x="3" y="12" width="20" height="12"/><path d="M23 16h6l4 5v3h-10z"/><circle cx="9" cy="27" r="3"/><circle cx="27" cy="27" r="3"/></svg>
+            <h3>Body building</h3><p>Load bodies, camper bodies and steel bodies for pickups and light commercial vehicles.</p></article>
+          <article class="cap"><span class="n">02</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><rect x="3" y="9" width="24" height="16"/><path d="M27 15h4l2 4v6h-6z"/><path d="M15 13v8M11 17h8"/><circle cx="9" cy="28" r="3"/><circle cx="27" cy="28" r="3"/></svg>
+            <h3>Ambulances</h3><p>Ambulance builds with body, interior and wiring, including on the Bolero.</p></article>
+          <article class="cap"><span class="n">03</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M3 14h30M3 22h30M8 14v8M18 14v8M28 14v8"/></svg>
+            <h3>Chassis work</h3><p>Chassis fabrication, extension and repair to carry the body you need.</p></article>
+          <article class="cap"><span class="n">04</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 24h28M8 24V13q0-3 3-3h14q3 0 3 3v11M14 10v14M22 10v14"/></svg>
+            <h3>Bumpers &amp; guards</h3><p>Safety guards and bumpers for cars, SUVs, pickups and trucks.</p></article>
+          <article class="cap"><span class="n">05</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 5h16v8H8z"/><path d="M16 13v6M12 19h8v12h-8z"/></svg>
+            <h3>Paint &amp; body work</h3><p>Full body work and paint, for new builds and existing vehicles.</p></article>
+          <article class="cap"><span class="n">06</span>
+            <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M20 4l-8 14h8l-4 14 12-18h-8l4-10z"/></svg>
+            <h3>Interior &amp; wiring</h3><p>Interior work, electrical wiring and accessories to complete the vehicle.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" id="products">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Selected products</p><h2>What leaves our workshop.</h2></div>
+          <p>A few of the builds we have completed, grouped by type.</p>
+        </div>
+        <div class="prod-grid">
+          <article class="prod">
+            <div class="img"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder for a Bolero pick-up with a flat steel load body" loading="lazy"></div>
+            <div class="body">
+              <p class="cat">Pickup &amp; load bodies</p>
+              <h3>Load bodies for working pickups</h3>
+              <ul><li>Bolero Pik-Up flat body</li><li>Bolero Camper steel body</li><li>Maruti Super Carry steel body</li><li>Isuzu Pik-Up &amp; Isuzu Camper</li></ul>
+            </div>
+          </article>
+          <article class="prod">
+            <div class="img"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder for a Bolero ambulance build" loading="lazy"></div>
+            <div class="body">
+              <p class="cat">Ambulances</p>
+              <h3>Ambulance builds</h3>
+              <ul><li>Bolero ambulance</li><li>Body, interior &amp; wiring</li></ul>
+            </div>
+          </article>
+          <article class="prod">
+            <div class="img"><img src="../../assets/img/ph-truck.svg" alt="Placeholder for a truck body and bumper build" loading="lazy"></div>
+            <div class="body">
+              <p class="cat">Trucks</p>
+              <h3>Truck bodies &amp; bumpers</h3>
+              <ul><li>Tata BharatBenz body &amp; bumper</li><li>Ashok Leyland</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Process</p><h2>How a build moves through the workshop.</h2></div>
+        </div>
+        <ol>
+          <li><h3>Requirement</h3><p>Share your vehicle model and what it needs to carry.</p></li>
+          <li><h3>Chassis</h3><p>Chassis work to suit the body.</p></li>
+          <li><h3>Fabrication</h3><p>The body, guards or bumper are fabricated.</p></li>
+          <li><h3>Paint &amp; finish</h3><p>Body work and paint.</p></li>
+          <li><h3>Fit-out</h3><p>Interior, wiring and accessories.</p></li>
+        </ol>
+        <p class="makes"><span>Makes we work on</span><b>Mahindra</b><b>Tata</b><b>Maruti</b><b>Hyundai</b><b>Toyota</b><b>Eicher</b></p>
+      </div>
+    </section>
+
+    <section class="enquiry" id="enquiry">
+      <div class="wrap">
+        <div class="enq-main">
+          <p class="eyebrow">Request a quote</p>
+          <h2>Tell us about your vehicle.</h2>
+          <p>Send your vehicle make, model and the body or work you need. We'll take it from there.</p>
+          <div class="row">
+            <a class="btn btn-white" href="tel:+919426546431">Call +91 94265 46431</a>
+            <a class="btn btn-ghost" href="https://wa.me/919426546431">WhatsApp</a>
+            <a class="btn btn-ghost" href="mailto:jmpanchal76@gmail.com?subject=Quote%20request">Email</a>
+          </div>
+        </div>
+        <dl class="enq-side">
+          <div><dt>Phone</dt><dd><a href="tel:+919426546431">+91 94265 46431</a><br><a href="tel:+919427640631">+91 94276 40631</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></dd></div>
+          <div><dt>Workshop</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat, India</dd></div>
+          <div><dt>Hours</dt><dd>Monday – Saturday, 9:00 am – 6:00 pm</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Panchal Motors</span><span>Vehicle body builders · Deesa, Gujarat</span></div></footer>
+
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>

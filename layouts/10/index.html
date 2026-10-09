@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <title>Layout 10 · Workshop Craftsmanship — Panchal Motors</title>
+  <meta name="description" content="How Panchal Motors builds a vehicle body, from consultation and design to fabrication, paint, finishing and delivery, at GIDC, Deesa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/base.css">
+  <style>
+    :root {
+      --bg: #f7f3ec; --paper: #fffdf9; --ink: #221d18; --soft: #5b534a; --muted: #8a8177;
+      --line: #e3dbcf; --rust: #a4471f; --rust-dark: #823616;
+      --gx: clamp(18px, 5vw, 64px);
+    }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.7 "Inter", system-ui, sans-serif; }
+    .serif, h1, h2, h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
+    .wrap { max-width: 1320px; margin: 0 auto; padding-inline: var(--gx); }
+    .small { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--rust); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border-radius: 999px;
+      font: 500 15px "Inter", sans-serif; text-decoration: none; border: 1px solid var(--ink); transition: background-color .2s, color .2s; }
+    .btn-solid { background: var(--ink); color: var(--paper); }
+    .btn-solid:hover { background: var(--rust); border-color: var(--rust); }
+    .btn:not(.btn-solid):hover { background: var(--ink); color: var(--paper); }
+
+    /* Header */
+    .hdr .wrap { display: flex; justify-content: space-between; align-items: center; height: 84px; gap: 16px; }
+    .logo { font: 400 28px "Instrument Serif", serif; text-decoration: none; }
+    .hdr nav { display: flex; gap: 28px; align-items: center; font-size: 14px; }
+    .hdr nav a { text-decoration: none; color: var(--soft); }
+    .hdr nav a:hover { color: var(--ink); }
+    .hdr nav .btn { min-height: 42px; color: var(--ink); }
+
+    /* Hero */
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: end; padding-block: clamp(32px, 6vw, 72px) clamp(64px, 9vw, 120px); }
+    .hero h1 { font-size: clamp(3.2rem, 8vw, 7.4rem); margin: 22px 0 28px; }
+    .hero h1 em { color: var(--rust); }
+    .hero p { color: var(--soft); font-size: 1.1rem; max-width: 42ch; margin-bottom: 32px; }
+    .hero .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero figure { position: relative; }
+    .crop { overflow: hidden; background: #d8d2c7; }
+    .crop img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1.6)); transform-origin: var(--o, 50% 50%); }
+    .hero .crop { aspect-ratio: 4 / 5; }
+    .hero figcaption { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); padding-top: 10px; }
+
+    /* Stages */
+    .stages { background: var(--paper); border-top: 1px solid var(--line); }
+    .stages .wrap { display: grid; grid-template-columns: 280px 1fr; gap: clamp(32px, 6vw, 96px); }
+    .index { position: sticky; top: 0; align-self: start; padding-block: clamp(56px, 8vw, 104px); }
+    .index h2 { font-size: clamp(2rem, 3vw, 2.6rem); margin: 16px 0 28px; }
+    .index ol { border-left: 1px solid var(--line); }
+    .index a { display: flex; gap: 14px; padding: 8px 0 8px 18px; margin-left: -1px; border-left: 2px solid transparent; color: var(--muted); text-decoration: none; font-size: 15px; transition: color .25s, border-color .25s; }
+    .index a span { font-variant-numeric: tabular-nums; }
+    .index a:hover, .index a.on { color: var(--ink); }
+    .index a.on { border-left-color: var(--rust); }
+
+    .steps { padding-block: clamp(56px, 8vw, 104px); }
+    .step { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: end; padding-bottom: clamp(56px, 8vw, 104px); scroll-margin-top: 24px; }
+    .step + .step { padding-top: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
+    .step:nth-child(even) .crop { order: 2; }
+    .step .crop { aspect-ratio: 1 / 1; }
+    .step .num { font: italic 400 clamp(4rem, 8vw, 7rem) / .8 "Instrument Serif", serif; color: var(--rust); }
+    .step h3 { font-size: clamp(2rem, 3.4vw, 3rem); margin: 18px 0 14px; }
+    .step p { color: var(--soft); max-width: 36ch; }
+
+    /* What we build */
+    .builds { padding-block: clamp(72px, 10vw, 136px); }
+    .builds .serif { font-size: clamp(1.9rem, 4.2vw, 3.6rem); line-height: 1.18; max-width: 22ch; margin-top: 20px; }
+    .builds .serif span { color: var(--muted); }
+
+    /* Contact */
+    .visit { border-top: 1px solid var(--line); }
+    .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); padding-block: clamp(64px, 9vw, 120px); }
+    .visit h2 { font-size: clamp(2.6rem, 6vw, 5rem); margin: 18px 0 28px; }
+    .visit .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .visit dl div { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 110px 1fr; gap: 16px; }
+    .visit dt { color: var(--muted); font-size: 14px; }
+    .visit dd a { text-decoration: none; border-bottom: 1px solid var(--line); }
+    .visit dd a:hover { border-color: var(--ink); }
+
+    footer .wrap { padding-block: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+    @media (max-width: 960px) {
+      .hdr nav a:not(.btn) { display: none; }
+      .hero .wrap, .visit .wrap { grid-template-columns: 1fr; }
+      .hero .crop { aspect-ratio: 16 / 11; }
+      .stages .wrap { grid-template-columns: 1fr; gap: 0; }
+      .index { position: static; padding-bottom: 0; }
+      .index ol { display: flex; flex-wrap: wrap; gap: 6px; border: 0; }
+      .index a { padding: 6px 12px; margin: 0; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; }
+      .index a.on { border-color: var(--rust); }
+      .step { grid-template-columns: 1fr; }
+      .step:nth-child(even) .crop { order: 0; }
+      .step .crop { aspect-ratio: 16 / 11; }
+    }
+    @media (max-width: 520px) {
+      .row .btn { flex: 1 1 100%; }
+      .visit dl div { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#main">Panchal Motors</a>
+      <nav aria-label="Primary">
+        <a href="#stages">The process</a>
+        <a href="#builds">What we build</a>
+        <a class="btn" href="#visit">Discuss Your Vehicle</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="small">Vehicle body building · Deesa, Gujarat</p>
+          <h1>The craft behind <em>every body</em> we build.</h1>
+          <p>Pickup bodies, ambulances, truck bodies, guards and custom work, taken from first conversation to finished vehicle in our GIDC workshop.</p>
+          <div class="row">
+            <a class="btn btn-solid" href="#visit">Discuss Your Vehicle</a>
+            <a class="btn" href="#stages">See the Process</a>
+          </div>
+        </div>
+        <figure>
+          <div class="crop" style="--z:1.9;--o:50% 52%"><img src="../../assets/img/ph-detail.svg" alt="Placeholder for a close-up photo of a fresh weld seam on a steel body panel"></div>
+          <figcaption><span>Close-up, fabrication bay</span><span>GIDC, Deesa</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="stages" id="stages">
+      <div class="wrap">
+        <nav class="index" aria-label="Build stages">
+          <p class="small">The process</p>
+          <h2>Seven stages, one workshop.</h2>
+          <ol>
+            <li><a href="#s1"><span>01</span>Consultation</a></li>
+            <li><a href="#s2"><span>02</span>Design</a></li>
+            <li><a href="#s3"><span>03</span>Material preparation</a></li>
+            <li><a href="#s4"><span>04</span>Fabrication</a></li>
+            <li><a href="#s5"><span>05</span>Painting</a></li>
+            <li><a href="#s6"><span>06</span>Finishing</a></li>
+            <li><a href="#s7"><span>07</span>Delivery</a></li>
+          </ol>
+        </nav>
+
+        <div class="steps">
+          <article class="step" id="s1">
+            <div class="crop" style="--z:1.3"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder for a photo of a customer's vehicle arriving at the workshop" loading="lazy"></div>
+            <div><span class="num">01</span><h3>Consultation</h3><p>We start with your vehicle, what it has to carry, how it will be used and what you want fitted.</p></div>
+          </article>
+          <article class="step" id="s2">
+            <div class="crop" style="--z:2.2;--o:42% 55%"><img src="../../assets/img/ph-truck.svg" alt="Placeholder for a photo of body dimensions being marked out on the chassis" loading="lazy"></div>
+            <div><span class="num">02</span><h3>Design</h3><p>The body layout, dimensions and fittings are planned around the chassis.</p></div>
+          </article>
+          <article class="step" id="s3">
+            <div class="crop" style="--z:1.5"><img src="../../assets/img/ph-workshop.svg" alt="Placeholder for a close-up photo of steel sections being cut" loading="lazy"></div>
+            <div><span class="num">03</span><h3>Material preparation</h3><p>Steel sections and sheet are cut and prepared for the body.</p></div>
+          </article>
+          <article class="step" id="s4">
+            <div class="crop" style="--z:2.4;--o:45% 50%"><img src="../../assets/img/ph-detail.svg" alt="Placeholder for a close-up photo of welding on a body frame" loading="lazy"></div>
+            <div><span class="num">04</span><h3>Fabrication</h3><p>The frame, body, guards or bumper are fabricated, with chassis work where the build needs it.</p></div>
+          </article>
+          <article class="step" id="s5">
+            <div class="crop" style="--z:1.8;--o:70% 50%"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder for a photo of a body panel after painting" loading="lazy"></div>
+            <div><span class="num">05</span><h3>Painting</h3><p>Body work and paint finish the exterior of the build.</p></div>
+          </article>
+          <article class="step" id="s6">
+            <div class="crop" style="--z:2;--o:50% 40%"><img src="../../assets/img/ph-bumper.svg" alt="Placeholder for a close-up photo of interior or wiring work being fitted" loading="lazy"></div>
+            <div><span class="num">06</span><h3>Finishing</h3><p>Interior work, wiring and accessories are fitted to complete the vehicle.</p></div>
+          </article>
+          <article class="step" id="s7">
+            <div class="crop" style="--z:1.2"><img src="../../assets/img/ph-suv.svg" alt="Placeholder for a photo of a finished vehicle outside the workshop" loading="lazy"></div>
+            <div><span class="num">07</span><h3>Delivery</h3><p>The finished vehicle is handed back, ready for work.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="builds" id="builds">
+      <div class="wrap">
+        <p class="small">What we build</p>
+        <p class="serif">Pickup and load bodies, ambulances, truck bodies, bumpers and safety guards <span>— for Mahindra, Tata, Maruti, Hyundai, Toyota and Eicher vehicles.</span></p>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <div>
+          <p class="small">Visit the workshop</p>
+          <h2>Bring us your vehicle.</h2>
+          <div class="row">
+            <a class="btn btn-solid" href="tel:+919426546431">Call +91 94265 46431</a>
+            <a class="btn" href="https://wa.me/919426546431">WhatsApp</a>
+          </div>
+        </div>
+        <dl>
+          <div><dt>Address</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat, India<br><a href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535">Get directions</a></dd></div>
+          <div><dt>Hours</dt><dd>Monday – Saturday, 9:00 am – 6:00 pm</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+919426546431">+91 94265 46431</a><br><a href="tel:+919427640631">+91 94276 40631</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Panchal Motors</span><span>GIDC, Deesa, Gujarat</span></div></footer>
+
+  <script>
+    // Highlight the stage currently in view in the sticky index.
+    (function () {
+      if (!("IntersectionObserver" in window)) return;
+      var links = {};
+      document.querySelectorAll(".index a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          Object.keys(links).forEach(function (k) { links[k].classList.toggle("on", k === e.target.id); });
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      document.querySelectorAll(".step").forEach(function (s) { io.observe(s); });
+    })();
+  </script>
+  <script src="../../assets/layouts.js" defer></script>
+</body>
+</html>
