@@ -46,7 +46,7 @@
 
   <main class="grid" id="grid" aria-label="Layout previews (scroll inside each one)"></main>
 
-  <script src="../assets/layouts.js"></script>
+  <script src="../assets/layouts.js?v=3"></script>
   <script>
     (function () {
       var grid = document.getElementById("grid");
@@ -59,7 +59,7 @@
         card.innerHTML =
           '<header><b>' + l.n + ' · ' + l.name + (l.round === 2 ? '<span class="new">New</span>' : '') + '</b>' +
           '<a href="' + href + '">Open full page →</a></header>' +
-          '<div class="frame"><iframe src="' + href + '" title="Preview of layout ' + l.n + ', ' + l.name + '" loading="lazy"></iframe></div>';
+          '<div class="frame"><iframe src="' + href + '?v=' + window.LAYOUT_VERSION + '" title="Preview of layout ' + l.n + ', ' + l.name + '" loading="lazy"></iframe></div>';
         grid.appendChild(card);
       });
 

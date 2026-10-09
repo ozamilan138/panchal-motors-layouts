@@ -23,6 +23,8 @@
     { n: "14", name: "Precision Minimal", round: 2, desc: "Warm off-white canvas, large type, sharp crops and only the essentials." }
   ];
   window.LAYOUTS = LAYOUTS;
+  // Bump on each deploy so gallery previews never show a cached, older layout.
+  window.LAYOUT_VERSION = "3";
 
   // Resolve the site root from this script's own URL so links work on any
   // host path (e.g. a GitHub Pages project subfolder) and from file://.

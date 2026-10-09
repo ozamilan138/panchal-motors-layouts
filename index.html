@@ -121,7 +121,7 @@
 
   <footer><div class="wrap"><span>Panchal Motors · GIDC, Deesa, Gujarat</span><span>Photos are free-to-use stock images (<a href="credits/" style="color:inherit">credits</a>), shown until real workshop photos are supplied.</span></div></footer>
 
-  <script src="assets/layouts.js"></script>
+  <script src="assets/layouts.js?v=3"></script>
   <script>
     (function () {
       var view = "desktop";
@@ -135,7 +135,7 @@
         card.className = "card";
         card.innerHTML =
           '<a class="thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><span class="no-js">Preview loading…</span>' +
-          '<iframe src="' + href + '" title="" loading="lazy" tabindex="-1" scrolling="no"></iframe></a>' +
+          '<iframe src="' + href + '?v=' + window.LAYOUT_VERSION + '" title="" loading="lazy" tabindex="-1" scrolling="no"></iframe></a>' +
           '<div class="body"><span class="num">Layout ' + l.n + '</span><h3>' + esc(l.name) + '</h3><p>' + esc(l.desc) + '</p>' +
           '<a class="open" href="' + href + '">Open layout ' + l.n + ' <span aria-hidden="true">→</span><span class="sr-only">: ' + esc(l.name) + '</span></a></div>';
         grid.appendChild(card);
