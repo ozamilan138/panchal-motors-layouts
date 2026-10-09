@@ -18,6 +18,7 @@ Then open http://localhost:8000/. Opening `index.html` directly from disk also w
 |---|---|
 | `/` | Gallery of all layouts, with a desktop/mobile preview switch |
 | `/compare/` | All layouts live, side by side |
+| `/credits/` | Source and licence of every photo |
 | `/layouts/00/` | Original homepage draft |
 | `/layouts/01/` – `/layouts/07/` | Round 1 concepts |
 | `/layouts/08/` – `/layouts/14/` | Round 2 concepts |
@@ -28,7 +29,7 @@ Then open http://localhost:8000/. Opening `index.html` directly from disk also w
 - `layouts/NN/index.html`: each layout is one self-contained page with its own inline styles.
 - `assets/base.css`: shared reset, placeholder, focus and skip-link styles.
 - `assets/layouts.js`: the list of layouts (names, descriptions) and the "All layouts" bar shown at the bottom of every layout. Add or rename layouts here.
-- `assets/img/ph-*.svg`: placeholder images. Replace them with real workshop photos, keeping each `<img>` and updating its `alt` text.
+- `assets/photos/`: CC0 stock photos (sources on `/credits/`). Replace them with real workshop photos, keeping the same file names or updating each `<img>` and its `alt` text.
 
 ## Picking a design
 

@@ -38,7 +38,7 @@
     .hero-meta p span { display: block; color: var(--muted); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 4px; }
     .hero-meta .cta { justify-self: end; align-self: center; font-size: 17px; font-weight: 500; }
     .plate { aspect-ratio: 12 / 5; overflow: hidden; background: #d7d3ca; }
-    .plate img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.35); transform-origin: 55% 58%; }
+    .plate img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); }
 
     /* Services */
     .section { padding-block: clamp(88px, 13vw, 200px); }
@@ -54,8 +54,8 @@
     .projects { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2vw, 28px); align-items: start; }
     .projects figure { margin: 0; }
     .projects .img { overflow: hidden; background: #d7d3ca; }
-    .projects img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1.3)); transform-origin: var(--o, 50% 55%); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-    .projects figure:hover img { transform: scale(calc(var(--z, 1.3) + .06)); }
+    .projects img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1)); transform-origin: var(--o, 50% 55%); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .projects figure:hover img { transform: scale(calc(var(--z, 1) + .04)); }
     .projects figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font-size: 14px; }
     .projects figcaption span { color: var(--muted); }
     .p1 { grid-column: 1 / span 7; }
@@ -134,7 +134,7 @@
         </div>
       </div>
       <div class="wrap">
-        <div class="plate"><img src="../../assets/img/ph-pickup.svg" alt="Placeholder for a tightly cropped photo of a finished pickup load body"></div>
+        <div class="plate"><img src="../../assets/photos/jeep-classic.jpg" alt="Classic jeep with a hard-top rear body"></div>
       </div>
     </section>
 
@@ -153,9 +153,9 @@
       <div class="wrap">
         <div class="sec-label"><span class="meta">Selected projects</span><span class="meta">Fig. 01 – 03</span></div>
         <div class="projects">
-          <figure class="p1"><div class="img" style="--z:1.5;--o:50% 50%"><img src="../../assets/img/ph-ambulance.svg" alt="Placeholder: close crop of a Bolero ambulance build" loading="lazy"></div><figcaption>Bolero Ambulance <span>Fig. 01</span></figcaption></figure>
-          <figure class="p2"><div class="img" style="--z:1.4;--o:60% 55%"><img src="../../assets/img/ph-suv.svg" alt="Placeholder: close crop of a customised Mahindra Thar" loading="lazy"></div><figcaption>Mahindra Thar <span>Fig. 02</span></figcaption></figure>
-          <figure class="p3"><div class="img" style="--z:1.6;--o:45% 55%"><img src="../../assets/img/ph-truck.svg" alt="Placeholder: close crop of a Tata BharatBenz body and bumper" loading="lazy"></div><figcaption>Tata BharatBenz Body <span>Fig. 03</span></figcaption></figure>
+          <figure class="p1"><div class="img"><img src="../../assets/photos/ambulance-ehs.jpg" alt="White box-body ambulance parked at the roadside" loading="lazy"></div><figcaption>Bolero Ambulance <span>Fig. 01</span></figcaption></figure>
+          <figure class="p2"><div class="img"><img src="../../assets/photos/suv-green.jpg" alt="Green 4x4 with a front guard on a gravel drive" loading="lazy"></div><figcaption>Mahindra Thar <span>Fig. 02</span></figcaption></figure>
+          <figure class="p3"><div class="img"><img src="../../assets/photos/truck-fleet.jpg" alt="Row of white trucks parked side by side" loading="lazy"></div><figcaption>Tata BharatBenz Body <span>Fig. 03</span></figcaption></figure>
         </div>
       </div>
     </section>

@@ -122,7 +122,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     repeating-linear-gradient(135deg, transparent 0 14px, rgba(22,24,27,.035) 14px 15px),
     linear-gradient(160deg, #d9d6cf, #c9c5bc);
 }
-.media img { width: 100%; height: 100%; object-fit: cover; }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.media:has(img) .media-label { display: none; }
 .media-label {
   position: absolute;
   left: 16px;
