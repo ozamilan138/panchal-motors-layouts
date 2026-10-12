@@ -42,28 +42,28 @@
 
     <section class="section" style="padding-top: clamp(48px, 6vw, 72px)">
       <div class="wrap">
-        <div class="chips" aria-label="Categories">
-          <span class="on">All work</span>
-          <span>Pickup &amp; load bodies</span>
-          <span>Ambulances</span>
-          <span>Truck bodies</span>
-          <span>Bumpers &amp; guards</span>
-          <span>SUV &amp; custom</span>
+        <div class="chips" role="group" aria-label="Filter by category">
+          <button type="button" data-filter="all" aria-pressed="true">All work</button>
+          <button type="button" data-filter="load" aria-pressed="false">Pickup &amp; load bodies</button>
+          <button type="button" data-filter="ambulance" aria-pressed="false">Ambulances</button>
+          <button type="button" data-filter="truck" aria-pressed="false">Truck bodies</button>
+          <button type="button" data-filter="bumper" aria-pressed="false">Bumpers &amp; guards</button>
+          <button type="button" data-filter="custom" aria-pressed="false">SUV &amp; custom</button>
         </div>
 
-        <div class="gallery">
-          <figure class="tile wide"><div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" loading="lazy"></div><figcaption><b>Bolero Ambulance</b><span>Ambulance</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/pickup-red.jpg" alt="Red double-cab pickup with a roll bar, parked on gravel" loading="lazy"></div><figcaption><b>Tata Yoddha</b><span>Load body</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy"></div><figcaption><b>Bolero Camper Steel Body</b><span>Load body</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India" loading="lazy"></div><figcaption><b>Tata BharatBenz</b><span>Body &amp; bumper</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/jeep-classic.jpg" alt="Classic jeep with a hard-top rear body" loading="lazy"></div><figcaption><b>Mahindra Thar</b><span>Custom work</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/pickup-blue.jpg" alt="Blue pickup with a roll bar on a country road" loading="lazy"></div><figcaption><b>Isuzu Pik-Up</b><span>Load body</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy"></div><figcaption><b>Bolero SLX Bumper</b><span>Bumper</span></figcaption></figure>
-          <figure class="tile wide"><div class="img"><img src="../../../assets/photos/truck-fleet.jpg" alt="Row of white trucks parked side by side" loading="lazy"></div><figcaption><b>Ashok Leyland</b><span>Truck</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/suv-green.jpg" alt="Green 4x4 with a front guard on a gravel drive" loading="lazy"></div><figcaption><b>Mahindra Scorpio</b><span>Custom work</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/ambulance-ehs.jpg" alt="White box-body ambulance parked at the roadside" loading="lazy"></div><figcaption><b>Ambulance</b><span>Ambulance</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/truck-highway.jpg" alt="Red truck with a box body on an Indian highway" loading="lazy"></div><figcaption><b>Tata Ace &amp; Super Carry Body</b><span>Load body</span></figcaption></figure>
-          <figure class="tile"><div class="img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines" loading="lazy"></div><figcaption><b>Hydraulic Scissor Lift Table</b><span>Custom fabrication</span></figcaption></figure>
+        <div class="gallery" id="gallery">
+          <figure data-cat="ambulance" class="tile wide"><div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" loading="lazy"></div><figcaption><b>Bolero Ambulance</b><span>Ambulance</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-red.jpg" alt="Red double-cab pickup with a roll bar, parked on gravel" loading="lazy"></div><figcaption><b>Tata Yoddha</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy"></div><figcaption><b>Bolero Camper Steel Body</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="truck" class="tile"><div class="img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India" loading="lazy"></div><figcaption><b>Tata BharatBenz</b><span>Body &amp; bumper</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/jeep-classic.jpg" alt="Classic jeep with a hard-top rear body" loading="lazy"></div><figcaption><b>Mahindra Thar</b><span>Custom work</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-blue.jpg" alt="Blue pickup with a roll bar on a country road" loading="lazy"></div><figcaption><b>Isuzu Pik-Up</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="bumper" class="tile"><div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy"></div><figcaption><b>Bolero SLX Bumper</b><span>Bumper</span></figcaption></figure>
+          <figure data-cat="truck" class="tile wide"><div class="img"><img src="../../../assets/photos/truck-fleet.jpg" alt="Row of white trucks parked side by side" loading="lazy"></div><figcaption><b>Ashok Leyland</b><span>Truck</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/suv-green.jpg" alt="Green 4x4 with a front guard on a gravel drive" loading="lazy"></div><figcaption><b>Mahindra Scorpio</b><span>Custom work</span></figcaption></figure>
+          <figure data-cat="ambulance" class="tile"><div class="img"><img src="../../../assets/photos/ambulance-ehs.jpg" alt="White box-body ambulance parked at the roadside" loading="lazy"></div><figcaption><b>Ambulance</b><span>Ambulance</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/truck-highway.jpg" alt="Red truck with a box body on an Indian highway" loading="lazy"></div><figcaption><b>Tata Ace &amp; Super Carry Body</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines" loading="lazy"></div><figcaption><b>Hydraulic Scissor Lift Table</b><span>Custom fabrication</span></figcaption></figure>
         </div>
       </div>
     </section>
@@ -107,6 +107,20 @@
     <div class="wrap bottom"><span>© Panchal Motors, Deesa, Gujarat</span><span>Photos are representative stock images</span></div>
   </footer>
 
+  <script>
+    // Filter the gallery by category; filtered views use a simple even grid.
+    (function () {
+      var btns = document.querySelectorAll("[data-filter]"), g = document.getElementById("gallery"), items = g.querySelectorAll(".tile");
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          var f = b.dataset.filter;
+          g.classList.toggle("filtered", f !== "all");
+          items.forEach(function (it) { it.hidden = !(f === "all" || it.dataset.cat === f); });
+          btns.forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+        });
+      });
+    })();
+  </script>
   <script src="../../../assets/layouts.js?v=4" defer></script>
 </body>
 </html>

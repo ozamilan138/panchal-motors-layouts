@@ -50,28 +50,33 @@
   </header>
 
   <main id="main">
-    <section class="page-head">
+    <section class="hero-contact">
       <div class="wrap">
-        <div>
-          <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span>Contact</span></nav>
-          <h1>Call, WhatsApp <span>or visit us</span></h1>
-          <p>We're at GIDC, Railway Station Road, Deesa. Open Monday to Saturday, 9 am – 6 pm.</p>
+        <div class="top">
+          <div>
+            <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span>Contact</span></nav>
+            <h1>Call, WhatsApp <span>or visit us</span></h1>
+            <p>GIDC, Railway Station Road, Deesa · Mon – Sat, 9 am – 6 pm</p>
+          </div>
+          <span class="status" id="status"><i></i><span>Mon – Sat, 9 am – 6 pm</span></span>
         </div>
-        <figure class="photo"><div class="img"><img src="../../../assets/photos/pickup-red.jpg" alt="Red double-cab pickup with a roll bar, parked on gravel"></div></figure>
+        <div class="big-acts">
+          <a class="big-act red" href="tel:+919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Call now</b><span>+91 94265 46431</span></span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="big-act wa" href="https://wa.me/919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><span>Send a photo of your vehicle</span></span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="big-act plain" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><b>Directions</b><span>Open in Google Maps</span></span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap contact-grid">
         <div>
-          <div class="big-acts">
-            <a class="big-act red" href="tel:+919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>+91 94265 46431</b><span>Call the workshop</span></span><span class="arr" aria-hidden="true">→</span></a>
-            <a class="big-act wa" href="https://wa.me/919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>WhatsApp us</b><span>Send a photo of your vehicle</span></span><span class="arr" aria-hidden="true">→</span></a>
-            <a class="big-act plain" href="tel:+919427640631"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>+91 94276 40631</b><span>Second number</span></span><span class="arr" aria-hidden="true">→</span></a>
-            <a class="big-act plain" href="mailto:jmpanchal76@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Email us</b><span>jmpanchal76@gmail.com</span></span><span class="arr" aria-hidden="true">→</span></a>
+          <h2 style="font-size:1.8rem;margin-bottom:14px">Other ways to reach us</h2>
+          <div class="mini">
+            <a href="tel:+919427640631"><span><b>+91 94276 40631</b><br><span>Second number</span></span><span aria-hidden="true">→</span></a>
+            <a href="mailto:jmpanchal76@gmail.com"><span><b>jmpanchal76@gmail.com</b><br><span>Email</span></span><span aria-hidden="true">→</span></a>
           </div>
-
-          <div class="find" style="margin-top:16px">
+          <div class="find">
             <div class="b">
               <h3>Opening hours</h3>
               <table class="hours">
@@ -151,6 +156,18 @@
     <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
+  <script>
+    // Open / closed badge from the current time in India (Mon–Sat, 9 am – 6 pm).
+    (function () {
+      var el = document.getElementById("status"); if (!el) return;
+      var now = new Date(Date.now() + (new Date().getTimezoneOffset() + 330) * 60000);
+      var d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
+      var open = d >= 1 && d <= 6 && m >= 540 && m < 1080;
+      var next = d === 0 || (d === 6 && m >= 1080) ? "Monday" : (m < 540 ? "today" : "tomorrow");
+      el.classList.add(open ? "open" : "closed");
+      el.lastElementChild.textContent = open ? "Open now · until 6 pm" : "Closed now · opens " + next + " at 9 am";
+    })();
+  </script>
   <script src="../../../assets/layouts.js?v=4" defer></script>
 </body>
 </html>
