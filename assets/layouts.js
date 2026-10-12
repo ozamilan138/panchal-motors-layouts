@@ -23,8 +23,15 @@
     { n: "14", name: "Precision Minimal", round: 2, desc: "Warm off-white canvas, large type, sharp crops and only the essentials." }
   ];
   window.LAYOUTS = LAYOUTS;
+
+  // Full multi-page websites built from the selected layouts.
+  var SITES = [
+    { slug: "image-led", from: "01", name: "Image-Led", desc: "Full website built from layout 01: photo-led pages with a bold, dark-overlay hero on every page." },
+    { slug: "local-trust", from: "13", name: "Local Trust", desc: "Full website built from layout 13: a friendly local-workshop site led by phone, WhatsApp and location." }
+  ];
+  window.SITES = SITES;
   // Bump on each deploy so gallery previews never show a cached, older layout.
-  window.LAYOUT_VERSION = "3";
+  window.LAYOUT_VERSION = "4";
 
   // Resolve the site root from this script's own URL so links work on any
   // host path (e.g. a GitHub Pages project subfolder) and from file://.
@@ -34,6 +41,7 @@
   function route(path) { return root + path + (isFile ? "index.html" : ""); }
   window.LAYOUT_ROUTE = function (n) { return route("layouts/" + n + "/"); };
   window.SITE_ROOT = route("");
+  window.SITE_ROUTE = function (slug) { return route("sites/" + slug + "/"); };
 
   // When opened from disk, make folder links ("layouts/08/") open their index.html.
   function fixFileLinks() {
@@ -84,7 +92,33 @@
     if (pb < 72) document.body.style.paddingBottom = "72px";
   }
 
-  function init() { addBar(); fixFileLinks(); }
+  // Slim "design preview" strip at the top of every page of a full site.
+  function addSiteStrip() {
+    var m = location.pathname.match(/sites\/([a-z-]+)\//);
+    if (!m || window.self !== window.top) return;
+    var site = SITES.filter(function (s) { return s.slug === m[1]; })[0];
+    if (!site) return;
+    var other = SITES.filter(function (s) { return s.slug !== site.slug; })[0];
+    var style = document.createElement("style");
+    style.textContent =
+      ".pstrip{position:relative;z-index:2147483000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 16px;" +
+      "background:#16181b;color:rgba(255,255,255,.75);font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif}" +
+      ".pstrip a{color:#fff;text-decoration:none;font-weight:600;white-space:nowrap}.pstrip a:hover{text-decoration:underline}" +
+      ".pstrip a:focus-visible{outline:2px solid #fff;outline-offset:2px}.pstrip .ps-mid{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
+      ".pstrip .ps-end{display:flex;gap:16px}@media (max-width:600px){.pstrip .ps-mid,.pstrip .ps-other{display:none}}";
+    document.head.appendChild(style);
+    var bar = document.createElement("div");
+    bar.className = "pstrip";
+    bar.setAttribute("role", "note");
+    bar.innerHTML = '<a href="' + window.SITE_ROOT + '">← All layouts</a>' +
+      '<span class="ps-mid">Design preview · ' + site.name + ' website (from layout ' + site.from + ')</span>' +
+      '<span class="ps-end">' + (other ? '<a class="ps-other" href="' + window.SITE_ROUTE(other.slug) + '">View ' + other.name + ' site →</a>' : '') + '</span>';
+    document.body.insertBefore(bar, document.body.firstChild);
+    // Pages with a header laid over the hero use this to sit below the strip.
+    document.documentElement.style.setProperty("--pstrip", bar.offsetHeight + "px");
+  }
+
+  function init() { addBar(); addSiteStrip(); fixFileLinks(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

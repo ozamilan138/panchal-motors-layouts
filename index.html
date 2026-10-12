@@ -58,25 +58,39 @@
     .card .open:hover { background: var(--accent); }
     .card .open:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
+    .badge-site { background: var(--ink); color: #fff; }
+    .sites { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .site-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+    .site-card .thumb { aspect-ratio: 16 / 9; }
+    .site-card .body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .site-card h3 { font-size: 1.6rem; }
+    .site-card .from { font-size: 13px; font-weight: 600; color: var(--accent); }
+    .site-card p { color: var(--soft); font-size: 15px; }
+    .site-pages { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .site-pages a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .site-pages a:hover { border-color: var(--ink); }
+    .site-card .open { margin-top: 8px; }
+    @media (max-width: 860px) { .sites { grid-template-columns: 1fr; } }
     footer { border-top: 1px solid var(--line); }
     footer .wrap { padding-block: 28px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
     @media (max-width: 640px) { .seg-label { display: none; } }
   </style>
 </head>
 <body>
-  <a class="skip" href="#new">Skip to layouts</a>
+  <a class="skip" href="#sites">Skip to layouts</a>
 
   <header class="top">
     <div class="wrap">
       <p class="kicker">Panchal Motors · Design review</p>
       <h1>Homepage layout concepts</h1>
-      <p>Fifteen directions for the Panchal Motors homepage, all using the same real business details. Open any layout to see it full-size. Inside each one, the bar at the bottom leads back here or on to the next layout.</p>
+      <p>Two selected designs are now built out as full websites. Below them are all fifteen homepage directions explored along the way, using the same real business details.</p>
     </div>
   </header>
 
   <nav class="toolbar" aria-label="Gallery tools">
     <div class="wrap">
       <div class="jump">
+        <a href="#sites">Full websites</a>
         <a href="#new">New concepts 08–14</a>
         <a href="#earlier">Earlier concepts 00–07</a>
       </div>
@@ -92,6 +106,16 @@
   </nav>
 
   <main>
+    <section class="group" id="sites" aria-labelledby="sites-title">
+      <div class="wrap">
+        <div class="group-head">
+          <h2 id="sites-title">Selected designs <span class="badge badge-site">Full websites</span></h2>
+          <p>Layouts 01 and 13, built out as complete five-page websites: Home, Services, Our Work, About and Contact.</p>
+        </div>
+        <div class="sites" id="sites-grid"></div>
+      </div>
+    </section>
+
     <section class="group" id="new" aria-labelledby="new-title">
       <div class="wrap">
         <div class="group-head">
@@ -121,13 +145,28 @@
 
   <footer><div class="wrap"><span>Panchal Motors · GIDC, Deesa, Gujarat</span><span>Photos are free-to-use stock images (<a href="credits/" style="color:inherit">credits</a>), shown until real workshop photos are supplied.</span></div></footer>
 
-  <script src="assets/layouts.js?v=3"></script>
+  <script src="assets/layouts.js?v=4"></script>
   <script>
     (function () {
       var view = "desktop";
       var esc = function (s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
       // Build the cards from the shared registry in assets/layouts.js.
+      // Full websites built from the selected layouts.
+      var PAGES = [["", "Home"], ["services/", "Services"], ["work/", "Our Work"], ["about/", "About"], ["contact/", "Contact"]];
+      window.SITES.forEach(function (st) {
+        var base = window.SITE_ROUTE(st.slug);
+        var link = function (p) { return base.replace(/index\.html$/, "") + p + (location.protocol === "file:" ? "index.html" : ""); };
+        var card = document.createElement("article");
+        card.className = "card site-card";
+        card.innerHTML =
+          '<a class="thumb" href="' + link("") + '" tabindex="-1" aria-hidden="true"><iframe src="' + link("") + (location.protocol === "file:" ? "" : "?v=" + window.LAYOUT_VERSION) + '" title="" loading="lazy" tabindex="-1" scrolling="no"></iframe></a>' +
+          '<div class="body"><span class="from">From layout ' + st.from + '</span><h3>' + esc(st.name) + ' website</h3><p>' + esc(st.desc) + '</p>' +
+          '<div class="site-pages">' + PAGES.map(function (pg) { return '<a href="' + link(pg[0]) + '">' + pg[1] + '</a>'; }).join("") + '</div>' +
+          '<a class="open" href="' + link("") + '">Open ' + esc(st.name) + ' website <span aria-hidden="true">→</span></a></div>';
+        document.getElementById("sites-grid").appendChild(card);
+      });
+
       window.LAYOUTS.forEach(function (l) {
         var grid = document.querySelector('.grid[data-round="' + (l.round === 2 ? 2 : 1) + '"]');
         var href = window.LAYOUT_ROUTE(l.n);
