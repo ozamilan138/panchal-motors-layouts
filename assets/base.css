@@ -58,7 +58,29 @@ a { color: inherit; }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
+/* Motion ------------------------------------------------------------------
+   Shared, CSS-first motion used by every page (see assets/motion.js).
+   - [data-reveal]: fades and rises once when scrolled into view. Use on a
+     few chosen blocks per page, never above the fold. Content stays visible
+     if the script does not run: only .js-motion hides it first.
+   - --d on the element staggers siblings (0, 1, 2… × 90ms).
+   - Animate transform and opacity only. */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-press: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+.js-motion [data-reveal].is-in { opacity: 1; transform: none; }
+@media print { .js-motion [data-reveal] { opacity: 1; transform: none; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .js-motion [data-reveal] { opacity: 1; transform: none; }
 }

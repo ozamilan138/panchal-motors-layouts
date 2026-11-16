@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -26,13 +26,13 @@
   <div class="topbar">
     <div class="wrap">
       <span class="addr"><svg aria-hidden="true"><use href="#i-pin"/></svg>Plot No. 1/B, GIDC, Railway Station Road, Deesa</span>
-      <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Mon – Sat, 9 am – 6 pm · <a href="tel:+919426546431">+91 94265 46431</a></span>
+      <span class="right"><span class="status" data-status><i aria-hidden="true"></i><span data-status-text>Mon – Sat, 9 am – 6 pm</span></span><a href="tel:+919426546431">+91 94265 46431</a></span>
     </div>
   </div>
 
   <header class="hdr">
     <div class="wrap">
-      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
       <input class="nav-toggle sr-only" type="checkbox" id="nav-toggle">
       <label class="nav-label" for="nav-toggle"><span></span><span class="sr-only">Menu</span></label>
       <nav class="nav" aria-label="Primary">
@@ -52,18 +52,20 @@
   <main id="main">
     <section class="hero-svc">
       <div class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span>Services</span></nav>
-        <h1>What can we <span>build for you?</span></h1>
-        <p>Pick a service to jump straight to it, or call us and we'll point you in the right direction.</p>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span aria-current="page">Services</span></nav>
+        <div class="intro">
+          <h1>What can we build for you?</h1>
+          <p>Pick a service to jump straight to it, or call us and we'll point you in the right direction.</p>
+        </div>
         <nav class="jump" aria-label="Jump to a service"><a href="#body-building"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="13" height="9"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span><span>Body building</span></a><a href="#ambulances"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="15" height="11"/><path d="M17 10h3l2 3v4h-5zM9.5 9v5M7 11.5h5"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><span>Ambulances</span></a><a href="#bumpers"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16h18M6 16V9q0-2 2-2h8q2 0 2 2v7M10 7v9M14 7v9"/></svg></span><span>Bumpers &amp; guards</span></a><a href="#chassis"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M2 15h20M6 9v6M12 9v6M18 9v6"/></svg></span><span>Chassis work</span></a><a href="#paint"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12v6H5zM11 9v4M8 13h6v8H8z"/></svg></span><span>Paint &amp; body</span></a><a href="#interior"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg></span><span>Interior &amp; wiring</span></a></nav>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="svc-cards">
-          <article class="svc-card" id="body-building">
-            <div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy"></div>
+        <div class="svc-rows">
+          <article class="svc-row" id="body-building">
+            <div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="13" height="9"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
               <h2>Body building</h2>
@@ -74,8 +76,8 @@
               </div>
             </div>
           </article>
-          <article class="svc-card" id="ambulances">
-            <div class="img"><img src="../../../assets/photos/ambulance-white.jpg" alt="White ambulance van with its side door open" loading="lazy"></div>
+          <article class="svc-row" id="ambulances">
+            <div class="img"><img src="../../../assets/photos/ambulance-white.jpg" alt="White ambulance van with its side door open" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="15" height="11"/><path d="M17 10h3l2 3v4h-5zM9.5 9v5M7 11.5h5"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span>
               <h2>Ambulances</h2>
@@ -86,8 +88,8 @@
               </div>
             </div>
           </article>
-          <article class="svc-card" id="bumpers">
-            <div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy"></div>
+          <article class="svc-row" id="bumpers">
+            <div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16h18M6 16V9q0-2 2-2h8q2 0 2 2v7M10 7v9M14 7v9"/></svg></span>
               <h2>Bumpers &amp; safety guards</h2>
@@ -98,8 +100,8 @@
               </div>
             </div>
           </article>
-          <article class="svc-card" id="chassis">
-            <div class="img"><img src="../../../assets/photos/under-truck.jpg" alt="Mechanic working underneath a truck chassis" loading="lazy"></div>
+          <article class="svc-row" id="chassis">
+            <div class="img"><img src="../../../assets/photos/under-truck.jpg" alt="Mechanic working underneath a truck chassis" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M2 15h20M6 9v6M12 9v6M18 9v6"/></svg></span>
               <h2>Chassis work</h2>
@@ -110,8 +112,8 @@
               </div>
             </div>
           </article>
-          <article class="svc-card" id="paint">
-            <div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" loading="lazy"></div>
+          <article class="svc-row" id="paint">
+            <div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12v6H5zM11 9v4M8 13h6v8H8z"/></svg></span>
               <h2>Paint &amp; body work</h2>
@@ -122,8 +124,8 @@
               </div>
             </div>
           </article>
-          <article class="svc-card" id="interior">
-            <div class="img"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" loading="lazy"></div>
+          <article class="svc-row" id="interior">
+            <div class="img"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" loading="lazy" decoding="async" width="800" height="600"></div>
             <div class="b">
               <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg></span>
               <h2>Interior, wiring &amp; accessories</h2>
@@ -138,28 +140,28 @@
       </div>
     </section>
 
-    <section class="section white">
-      <div class="wrap about-grid" style="align-items:center">
+    <section class="section alt">
+      <div class="wrap about-grid" style="align-items:center" data-reveal>
         <div>
           <h2>Not sure what your vehicle needs?</h2>
           <p>Send a photo of your vehicle on WhatsApp and tell us what you'd like it to do. We'll talk it through with you.</p>
         </div>
         <div>
-          <p style="margin-bottom:10px;font-weight:800">We work on vehicles from:</p>
+          <p class="label">We work on vehicles from:</p>
           <div class="makes"><span>Mahindra</span><span>Tata</span><span>Maruti</span><span>Hyundai</span><span>Toyota</span><span>Eicher</span></div>
         </div>
       </div>
     </section>
 
-    <section class="wrap" style="padding-bottom: clamp(56px, 8vw, 96px)">
-      <div class="cta-card">
+    <section class="wrap cta-wrap">
+      <div class="cta-card" data-reveal>
         <div>
           <h2>Ready to get started?</h2>
           <p>Call the workshop or send a WhatsApp message.</p>
         </div>
         <div class="row">
-          <a class="btn btn-white" href="tel:+919426546431"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call +91 94265 46431</a>
-          <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp Us</a>
+          <a class="btn btn-red" href="tel:+919426546431"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call +91 94265 46431</a>
+          <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp us</a>
         </div>
       </div>
     </section>
@@ -169,7 +171,7 @@
   <footer class="ftr">
     <div class="wrap top">
       <div>
-        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
         <p>Load bodies, ambulances, bumpers, chassis work, paint and fit-out at GIDC, Deesa.</p>
         <div class="acts">
           <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -185,7 +187,7 @@
         <ul>
           <li>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</li>
           <li>Mon – Sat, 9:00 am – 6:00 pm</li>
-          <li><a href="tel:+919426546431">+91 94265 46431</a> · <a href="tel:+919427640631">+91 94276 40631</a></li>
+          <li class="phones"><a href="tel:+919426546431">+91 94265 46431</a><a href="tel:+919427640631">+91 94276 40631</a></li>
           <li><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></li>
         </ul>
       </div>
@@ -198,6 +200,8 @@
     <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../site.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>

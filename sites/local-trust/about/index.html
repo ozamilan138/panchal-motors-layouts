@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -26,13 +26,13 @@
   <div class="topbar">
     <div class="wrap">
       <span class="addr"><svg aria-hidden="true"><use href="#i-pin"/></svg>Plot No. 1/B, GIDC, Railway Station Road, Deesa</span>
-      <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Mon – Sat, 9 am – 6 pm · <a href="tel:+919426546431">+91 94265 46431</a></span>
+      <span class="right"><span class="status" data-status><i aria-hidden="true"></i><span data-status-text>Mon – Sat, 9 am – 6 pm</span></span><a href="tel:+919426546431">+91 94265 46431</a></span>
     </div>
   </div>
 
   <header class="hdr">
     <div class="wrap">
-      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
       <input class="nav-toggle sr-only" type="checkbox" id="nav-toggle">
       <label class="nav-label" for="nav-toggle"><span></span><span class="sr-only">Menu</span></label>
       <nav class="nav" aria-label="Primary">
@@ -52,10 +52,10 @@
   <main id="main">
     <section class="hero-about">
       <div class="wrap">
-        <div class="banner"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift"></div>
+        <div class="banner"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" width="2000" height="1336" fetchpriority="high" decoding="async"></div>
         <div class="card">
-          <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span>About Us</span></nav>
-          <h1>A local workshop <span>in Deesa</span></h1>
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span aria-current="page">About Us</span></nav>
+          <h1>A local workshop in Deesa</h1>
           <p>Panchal Motors builds and customises vehicles at GIDC, Railway Station Road, Deesa.</p>
           <div class="tags">
             <span><svg aria-hidden="true"><use href="#i-pin"/></svg>GIDC, Deesa</span>
@@ -66,29 +66,28 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section alt">
       <div class="wrap story">
         <div>
-          <span class="kicker">Who we are</span>
           <h2>Panchal Motors</h2>
           <p>We are a vehicle body-building workshop at GIDC, Deesa. We build and customise passenger and commercial vehicles, from chassis work to paint, interior and wiring.</p>
           <p>Our work includes load bodies for pickups, ambulance builds, truck body work, bumpers, safety guards and custom fabrication.</p>
-          <p>We work on vehicles from:</p>
+          <p class="label">We work on vehicles from:</p>
           <div class="makes"><span>Mahindra</span><span>Tata</span><span>Maruti</span><span>Hyundai</span><span>Toyota</span><span>Eicher</span></div>
         </div>
-        <div class="polaroids" aria-label="In the workshop">
-          <figure><div class="img"><img src="../../../assets/photos/welder-frame.jpg" alt="Welder joining steel sections on a fabricated frame" loading="lazy"></div><figcaption>Fabrication</figcaption></figure>
-          <figure><div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" loading="lazy"></div><figcaption>Paint prep</figcaption></figure>
-          <figure><div class="img"><img src="../../../assets/photos/grinder.jpg" alt="Angle grinder throwing sparks while cutting metal" loading="lazy"></div><figcaption>Cutting &amp; grinding</figcaption></figure>
-          <figure><div class="img"><img src="../../../assets/photos/tools-wall.jpg" alt="Hand tools arranged on a workshop wall" loading="lazy"></div><figcaption>The workshop</figcaption></figure>
+        <div class="polaroids" role="group" aria-label="In the workshop" data-reveal>
+          <figure><div class="img"><img src="../../../assets/photos/welder-frame.jpg" alt="Welder joining steel sections on a fabricated frame" loading="lazy" decoding="async" width="800" height="600"></div><figcaption>Fabrication</figcaption></figure>
+          <figure><div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" loading="lazy" decoding="async" width="800" height="600"></div><figcaption>Paint prep</figcaption></figure>
+          <figure><div class="img"><img src="../../../assets/photos/grinder.jpg" alt="Angle grinder throwing sparks while cutting metal" loading="lazy" decoding="async" width="800" height="600"></div><figcaption>Cutting &amp; grinding</figcaption></figure>
+          <figure><div class="img"><img src="../../../assets/photos/tools-wall.jpg" alt="Hand tools arranged on a workshop wall" loading="lazy" decoding="async" width="800" height="600"></div><figcaption>The workshop</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="section white">
+    <section class="section">
       <div class="wrap">
         <div class="sh"><h2>Why customers come to us</h2></div>
-        <div class="values">
+        <div class="values" data-reveal>
           <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M2 15h20M6 9v6M12 9v6M18 9v6"/></svg></span><h3>One workshop</h3><p>Chassis, body, paint, wiring and accessories, all in one place.</p></div>
           <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-7.6 7-12a7 7 0 10-14 0c0 4.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><h3>Easy to reach</h3><p>At GIDC, Railway Station Road, Deesa. Open Monday to Saturday.</p></div>
           <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.7A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.3-1.2z"/></svg></span><h3>Talk to us directly</h3><p>Call or WhatsApp the workshop to discuss your vehicle.</p></div>
@@ -96,12 +95,12 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section alt">
       <div class="wrap about-grid">
         <div>
           <h2>Come and visit</h2>
           <p>Bring your vehicle to the workshop and we'll look at the work together.</p>
-          <p><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535">Get directions →</a></p>
+          <p><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535">Get directions</a></p>
         </div>
         <div class="find">
           <div class="map" role="img" aria-label="Illustrated map marker for the workshop location"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
@@ -109,23 +108,23 @@
             <h3>Panchal Motors</h3>
             <p>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat, India</p>
             <table>
-              <tr><td>Monday – Saturday</td><td>9:00 am – 6:00 pm</td></tr>
-              <tr><td>Phone</td><td><a href="tel:+919426546431">+91 94265 46431</a></td></tr>
+              <tr><th scope="row">Monday – Saturday</th><td>9:00 am – 6:00 pm</td></tr>
+              <tr><th scope="row">Phone</th><td><a href="tel:+919426546431">+91 94265 46431</a></td></tr>
             </table>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="wrap" style="padding-bottom: clamp(56px, 8vw, 96px)">
-      <div class="cta-card">
+    <section class="wrap cta-wrap">
+      <div class="cta-card" data-reveal>
         <div>
           <h2>Let's talk about your vehicle</h2>
           <p>Call or WhatsApp the workshop, Monday to Saturday.</p>
         </div>
         <div class="row">
-          <a class="btn btn-white" href="tel:+919426546431"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call +91 94265 46431</a>
-          <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp Us</a>
+          <a class="btn btn-red" href="tel:+919426546431"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call +91 94265 46431</a>
+          <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp us</a>
         </div>
       </div>
     </section>
@@ -135,7 +134,7 @@
   <footer class="ftr">
     <div class="wrap top">
       <div>
-        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
         <p>Load bodies, ambulances, bumpers, chassis work, paint and fit-out at GIDC, Deesa.</p>
         <div class="acts">
           <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -151,7 +150,7 @@
         <ul>
           <li>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</li>
           <li>Mon – Sat, 9:00 am – 6:00 pm</li>
-          <li><a href="tel:+919426546431">+91 94265 46431</a> · <a href="tel:+919427640631">+91 94276 40631</a></li>
+          <li class="phones"><a href="tel:+919426546431">+91 94265 46431</a><a href="tel:+919427640631">+91 94276 40631</a></li>
           <li><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></li>
         </ul>
       </div>
@@ -164,6 +163,8 @@
     <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../site.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>

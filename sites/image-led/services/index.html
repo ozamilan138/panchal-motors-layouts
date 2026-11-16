@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -23,144 +23,111 @@
       <nav class="nav" aria-label="Primary">
         <a href="../">Home</a>
         <a href="./" aria-current="page">Services</a>
-        <a href="../work/">Our Work</a>
+        <a href="../work/">Our work</a>
         <a href="../about/">About</a>
-        <a class="btn btn-white" href="../contact/">Enquire</a>
+        <a class="btn btn-signal" href="../contact/">Enquire</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero hero-page">
-      <div class="hero-img"><img src="../../../assets/photos/welder-blue.jpg" alt="Welder in a mask welding a steel frame in a workshop"></div>
+      <div class="hero-img"><img src="../../../assets/photos/welder-blue.jpg" alt="Welder in a mask welding a steel frame in a workshop" width="1024" height="683" fetchpriority="high" decoding="async"></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span>Services</span></nav>
-        <h1>Everything from chassis to finish.</h1>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">Services</span></nav>
+        <h1><span class="ln"><span>Everything from chassis to finish.</span></span></h1>
         <p>Each service can be taken on its own, or combined into a complete build.</p>
       </div>
     </section>
 
-    <section class="section-tight white bordered">
+    <div class="white bordered" style="padding-block: 18px">
       <div class="wrap">
         <nav class="toc" aria-label="Jump to a service">
           <a href="#body-building">Body building</a>
           <a href="#ambulances">Ambulances</a>
           <a href="#chassis">Chassis work</a>
-          <a href="#paint">Paint &amp; body work</a>
-          <a href="#interior">Interior &amp; wiring</a>
-          <a href="#guards">Bumpers, guards &amp; accessories</a>
+          <a href="#paint">Paint and body work</a>
+          <a href="#interior">Interior and wiring</a>
+          <a href="#guards">Bumpers, guards and accessories</a>
         </nav>
       </div>
-    </section>
+    </div>
 
-    <section class="section" style="padding-top: clamp(24px, 4vw, 48px)">
+    <div class="section" style="padding-top: clamp(16px, 3vw, 32px)">
       <div class="wrap">
-        <article class="svc-row" id="body-building">
-          <div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy"></div>
+        <article class="svc-row" id="body-building" aria-labelledby="body-building-t">
+          <div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" width="1024" height="768" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">01</span>
-            <h2>Body building</h2>
+            <h2 id="body-building-t">Body building</h2>
             <p>Load bodies, camper bodies and steel bodies for pickups and light commercial vehicles, built around how the vehicle will be used.</p>
-            <ul class="ticks">
-              <li>Flat and long-side load bodies</li>
-              <li>Camper and steel bodies</li>
-              <li>Special-purpose bodies, such as a horse carrier</li>
-            </ul>
-            <a class="more" href="../work/">See body building work →</a>
+            <ul class="ticks"><li>Flat and long-side load bodies</li><li>Camper and steel bodies</li><li>Special-purpose bodies, such as a horse carrier</li></ul>
+            <a class="more" href="../work/">See body building work</a>
           </div>
         </article>
-
-        <article class="svc-row" id="ambulances">
-          <div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" loading="lazy"></div>
+        <article class="svc-row" id="ambulances" aria-labelledby="ambulances-t">
+          <div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" width="1024" height="681" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">02</span>
-            <h2>Ambulances</h2>
+            <h2 id="ambulances-t">Ambulances</h2>
             <p>Ambulance builds covering the body, the interior fit-out and the electrical wiring, including builds on the Bolero.</p>
-            <ul class="ticks">
-              <li>Ambulance body</li>
-              <li>Interior fit-out</li>
-              <li>Wiring</li>
-            </ul>
-            <a class="more" href="../contact/">Discuss an ambulance build →</a>
+            <ul class="ticks"><li>Ambulance body</li><li>Interior fit-out</li><li>Wiring</li></ul>
+            <a class="more" href="../contact/">Discuss an ambulance build</a>
           </div>
         </article>
-
-        <article class="svc-row" id="chassis">
-          <div class="img"><img src="../../../assets/photos/under-truck.jpg" alt="Mechanic working underneath a truck chassis" loading="lazy"></div>
+        <article class="svc-row" id="chassis" aria-labelledby="chassis-t">
+          <div class="img"><img src="../../../assets/photos/under-truck.jpg" alt="Mechanic working underneath a truck chassis" width="1024" height="681" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">03</span>
-            <h2>Chassis work</h2>
+            <h2 id="chassis-t">Chassis work</h2>
             <p>Chassis fabrication, extension and repair, so the frame suits the body it has to carry.</p>
-            <ul class="ticks">
-              <li>Chassis fabrication</li>
-              <li>Chassis extension</li>
-              <li>Chassis repair</li>
-            </ul>
-            <a class="more" href="../contact/">Ask about chassis work →</a>
+            <ul class="ticks"><li>Chassis fabrication</li><li>Chassis extension</li><li>Chassis repair</li></ul>
+            <a class="more" href="../contact/">Ask about chassis work</a>
           </div>
         </article>
-
-        <article class="svc-row" id="paint">
-          <div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" loading="lazy"></div>
+        <article class="svc-row" id="paint" aria-labelledby="paint-t">
+          <div class="img"><img src="../../../assets/photos/paint-prep.jpg" alt="Car masked with paper and tape, ready for painting" width="1024" height="683" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">04</span>
-            <h2>Paint &amp; body work</h2>
+            <h2 id="paint-t">Paint and body work</h2>
             <p>Full body work and paint, to finish a new build or restore an existing vehicle.</p>
-            <ul class="ticks">
-              <li>Full body work</li>
-              <li>Paint work</li>
-            </ul>
-            <a class="more" href="../contact/">Ask about paint work →</a>
+            <ul class="ticks"><li>Full body work</li><li>Paint work</li></ul>
+            <a class="more" href="../contact/">Ask about paint work</a>
           </div>
         </article>
-
-        <article class="svc-row" id="interior">
-          <div class="img"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" loading="lazy"></div>
+        <article class="svc-row" id="interior" aria-labelledby="interior-t">
+          <div class="img"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" width="2000" height="1336" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">05</span>
-            <h2>Interior &amp; wiring</h2>
+            <h2 id="interior-t">Interior and wiring</h2>
             <p>Interior work and electrical wiring for ambulances, custom builds and special-purpose vehicles.</p>
-            <ul class="ticks">
-              <li>Interior work</li>
-              <li>Wiring work</li>
-            </ul>
-            <a class="more" href="../contact/">Ask about fit-out →</a>
+            <ul class="ticks"><li>Interior work</li><li>Wiring work</li></ul>
+            <a class="more" href="../contact/">Ask about fit-out</a>
           </div>
         </article>
-
-        <article class="svc-row" id="guards">
-          <div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy"></div>
+        <article class="svc-row" id="guards" aria-labelledby="guards-t">
+          <div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" width="1024" height="683" loading="lazy" decoding="async"></div>
           <div>
-            <span class="n">06</span>
-            <h2>Bumpers, guards &amp; accessories</h2>
+            <h2 id="guards-t">Bumpers, guards and accessories</h2>
             <p>Bumpers and safety guards for cars, SUVs, pickups and trucks, plus accessories and one-off custom work.</p>
-            <ul class="ticks">
-              <li>Bumpers, including car and Bolero bumpers</li>
-              <li>Safety guards</li>
-              <li>Accessories and custom work</li>
-            </ul>
-            <a class="more" href="../work/">See bumper work →</a>
+            <ul class="ticks"><li>Bumpers, including car and Bolero bumpers</li><li>Safety guards</li><li>Accessories and custom work</li></ul>
+            <a class="more" href="../work/">See bumper work</a>
           </div>
         </article>
       </div>
-    </section>
+    </div>
 
-    <section class="section-tight white bordered">
-      <div class="wrap">
-        <p class="eyebrow">Makes we work on</p>
-        <div class="makes"><span>Mahindra</span><span>Tata</span><span>Maruti</span><span>Hyundai</span><span>Toyota</span><span>Eicher</span></div>
+    <section class="section-tight white bordered" aria-labelledby="makes-title">
+      <div class="wrap" data-reveal>
+        <h2 class="makes-title" id="makes-title">Makes we work on</h2>
+        <ul class="makes"><li>Mahindra</li><li>Tata</li><li>Maruti</li><li>Hyundai</li><li>Toyota</li><li>Eicher</li></ul>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="wrap">
+    <section class="cta" style="border-top: 0" aria-labelledby="cta-title">
+      <div class="wrap" data-reveal>
         <div>
-          <h2>Not sure which service you need?</h2>
+          <h2 id="cta-title">Not sure which service you need?</h2>
           <p>Send your vehicle details and we'll talk it through.</p>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-white" href="../contact/">Send an Enquiry</a>
-          <a class="btn btn-ghost" href="tel:+919426546431">Call Now</a>
+          <a class="btn btn-signal" href="../contact/">Send an enquiry</a>
+          <a class="btn btn-line" href="tel:+919426546431">Call the workshop</a>
         </div>
       </div>
     </section>
@@ -173,15 +140,15 @@
         <p>Vehicle body builders at GIDC, Deesa. Body building, ambulances, chassis work, paint and fit-out.</p>
       </div>
       <div>
-        <h4>Pages</h4>
-        <ul><li><a href="../">Home</a></li><li><a href="./">Services</a></li><li><a href="../work/">Our Work</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li></ul>
+        <h2>Pages</h2>
+        <ul><li><a href="../">Home</a></li><li><a href="./">Services</a></li><li><a href="../work/">Our work</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li></ul>
       </div>
       <div>
-        <h4>Services</h4>
-        <ul><li><a href="#body-building">Body building</a></li><li><a href="#ambulances">Ambulances</a></li><li><a href="#chassis">Chassis work</a></li><li><a href="#paint">Paint &amp; body</a></li><li><a href="#guards">Guards &amp; accessories</a></li></ul>
+        <h2>Services</h2>
+        <ul><li><a href="#body-building">Body building</a></li><li><a href="#ambulances">Ambulances</a></li><li><a href="#chassis">Chassis work</a></li><li><a href="#paint">Paint and body</a></li><li><a href="#guards">Guards and accessories</a></li></ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul>
           <li><a href="tel:+919426546431">+91 94265 46431</a></li>
           <li><a href="tel:+919427640631">+91 94276 40631</a></li>
@@ -194,6 +161,7 @@
     <div class="wrap bottom"><span>© Panchal Motors, Deesa, Gujarat</span><span>Photos are representative stock images</span></div>
   </footer>
 
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>
