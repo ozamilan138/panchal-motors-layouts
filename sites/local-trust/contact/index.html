@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hind+Vadodara:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -26,13 +26,13 @@
   <div class="topbar">
     <div class="wrap">
       <span class="addr"><svg aria-hidden="true"><use href="#i-pin"/></svg>Plot No. 1/B, GIDC, Railway Station Road, Deesa</span>
-      <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Mon – Sat, 9 am – 6 pm · <a href="tel:+919426546431">+91 94265 46431</a></span>
+      <span class="right"><span class="status" data-status><i aria-hidden="true"></i><span data-status-text>Mon – Sat, 9 am – 6 pm</span></span><a href="tel:+919426546431">+91 94265 46431</a></span>
     </div>
   </div>
 
   <header class="hdr">
     <div class="wrap">
-      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+      <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
       <input class="nav-toggle sr-only" type="checkbox" id="nav-toggle">
       <label class="nav-label" for="nav-toggle"><span></span><span class="sr-only">Menu</span></label>
       <nav class="nav" aria-label="Primary">
@@ -54,16 +54,16 @@
       <div class="wrap">
         <div class="top">
           <div>
-            <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span>Contact</span></nav>
-            <h1>Call, WhatsApp <span>or visit us</span></h1>
-            <p>GIDC, Railway Station Road, Deesa · Mon – Sat, 9 am – 6 pm</p>
+            <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">›</span><span aria-current="page">Contact</span></nav>
+            <h1>Call, WhatsApp or visit us</h1>
+            <p>GIDC, Railway Station Road, Deesa. Open Monday to Saturday, 9 am to 6 pm.</p>
           </div>
-          <span class="status" id="status"><i></i><span>Mon – Sat, 9 am – 6 pm</span></span>
+          <span class="status chip" data-status><i aria-hidden="true"></i><span data-status-text>Mon – Sat, 9 am – 6 pm</span></span>
         </div>
         <div class="big-acts">
-          <a class="big-act red" href="tel:+919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Call now</b><span>+91 94265 46431</span></span><span class="arr" aria-hidden="true">→</span></a>
-          <a class="big-act wa" href="https://wa.me/919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><span>Send a photo of your vehicle</span></span><span class="arr" aria-hidden="true">→</span></a>
-          <a class="big-act plain" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><b>Directions</b><span>Open in Google Maps</span></span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="big-act red" href="tel:+919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Call the workshop</b><span>+91 94265 46431</span></span></a>
+          <a class="big-act wa" href="https://wa.me/919426546431"><span class="ic"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>Send a WhatsApp message</b><span>Send a photo of your vehicle</span></span></a>
+          <a class="big-act plain" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535"><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><b>Get directions</b><span>Open in Google Maps</span></span></a>
         </div>
       </div>
     </section>
@@ -71,29 +71,28 @@
     <section class="section">
       <div class="wrap contact-grid">
         <div>
-          <h2 style="font-size:1.8rem;margin-bottom:14px">Other ways to reach us</h2>
+          <h2>Other ways to reach us</h2>
           <div class="mini">
-            <a href="tel:+919427640631"><span><b>+91 94276 40631</b><br><span>Second number</span></span><span aria-hidden="true">→</span></a>
-            <a href="mailto:jmpanchal76@gmail.com"><span><b>jmpanchal76@gmail.com</b><br><span>Email</span></span><span aria-hidden="true">→</span></a>
+            <a href="tel:+919427640631"><b>+91 94276 40631</b><span>Second number</span></a>
+            <a href="mailto:jmpanchal76@gmail.com"><b>jmpanchal76@gmail.com</b><span>Email</span></a>
           </div>
-          <div class="find">
-            <div class="b">
-              <h3>Opening hours</h3>
-              <table class="hours">
-                <tr><td>Monday – Saturday</td><td>9:00 am – 6:00 pm</td></tr>
-              </table>
-            </div>
+          <div class="hours-box">
+            <h3>Opening hours</h3>
+            <table class="hours">
+              <tr><th scope="row">Monday – Saturday</th><td>9:00 am – 6:00 pm</td></tr>
+              <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+            </table>
           </div>
         </div>
 
-        <form class="form" action="#" onsubmit="return false" aria-labelledby="form-title">
+        <form class="form" action="#" onsubmit="return false" aria-labelledby="form-title" data-reveal>
           <h2 id="form-title">Send us a message</h2>
           <p>Tell us about your vehicle and the work you need.</p>
           <div class="fields">
             <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text" autocomplete="name"></div>
             <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" type="tel" autocomplete="tel"></div>
             <div class="field full"><label for="f-vehicle">Your vehicle</label><input id="f-vehicle" type="text" placeholder="e.g. Mahindra Bolero Camper"></div>
-            <fieldset class="field full" style="border:0;padding:0;margin:0"><legend style="font-weight:800;font-size:15px;margin-bottom:6px">What do you need?</legend>
+            <fieldset class="field full"><legend>What do you need?</legend>
               <div class="radio-row">
                 <label><input type="radio" name="need" checked> Load body</label>
                 <label><input type="radio" name="need"> Ambulance</label>
@@ -105,8 +104,8 @@
             </fieldset>
             <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" placeholder="Tell us a little about the job"></textarea></div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">
-            <button class="btn btn-red" type="button">Send Message</button>
+          <div class="form-acts">
+            <button class="btn btn-red" type="button">Send message</button>
             <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
           </div>
           <p class="note">Design preview: this form doesn't send yet.</p>
@@ -114,11 +113,11 @@
       </div>
     </section>
 
-    <section class="section white">
+    <section class="section alt">
       <div class="wrap">
         <div class="sh"><h2>Find the workshop</h2><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535"><svg aria-hidden="true"><use href="#i-pin"/></svg>Open in Google Maps</a></div>
-        <div class="map big" role="img" aria-label="Illustrated map marking the Panchal Motors workshop"><svg aria-hidden="true"><use href="#i-pin"/></svg><span class="tag">Panchal Motors · GIDC, Deesa</span></div>
-        <p style="margin-top:14px;color:var(--soft)">Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat, India</p>
+        <div class="map big" data-reveal role="img" aria-label="Illustrated map marking the Panchal Motors workshop"><svg aria-hidden="true"><use href="#i-pin"/></svg><span class="tag">Panchal Motors, GIDC, Deesa</span></div>
+        <p class="addr-line">Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat, India</p>
       </div>
     </section>
 
@@ -127,7 +126,7 @@
   <footer class="ftr">
     <div class="wrap top">
       <div>
-        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small>Vehicle body builders, Deesa</small></span></a>
+        <a class="logo" href="../"><i aria-hidden="true">PM</i><span><b>Panchal Motors</b><small lang="gu">પંચાલ મોટર્સ</small></span></a>
         <p>Load bodies, ambulances, bumpers, chassis work, paint and fit-out at GIDC, Deesa.</p>
         <div class="acts">
           <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -143,7 +142,7 @@
         <ul>
           <li>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</li>
           <li>Mon – Sat, 9:00 am – 6:00 pm</li>
-          <li><a href="tel:+919426546431">+91 94265 46431</a> · <a href="tel:+919427640631">+91 94276 40631</a></li>
+          <li class="phones"><a href="tel:+919426546431">+91 94265 46431</a><a href="tel:+919427640631">+91 94276 40631</a></li>
           <li><a href="mailto:jmpanchal76@gmail.com">jmpanchal76@gmail.com</a></li>
         </ul>
       </div>
@@ -156,18 +155,8 @@
     <a class="btn btn-wa" href="https://wa.me/919426546431"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
-  <script>
-    // Open / closed badge from the current time in India (Mon–Sat, 9 am – 6 pm).
-    (function () {
-      var el = document.getElementById("status"); if (!el) return;
-      var now = new Date(Date.now() + (new Date().getTimezoneOffset() + 330) * 60000);
-      var d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
-      var open = d >= 1 && d <= 6 && m >= 540 && m < 1080;
-      var next = d === 0 || (d === 6 && m >= 1080) ? "Monday" : (m < 540 ? "today" : "tomorrow");
-      el.classList.add(open ? "open" : "closed");
-      el.lastElementChild.textContent = open ? "Open now · until 6 pm" : "Closed now · opens " + next + " at 9 am";
-    })();
-  </script>
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../site.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>

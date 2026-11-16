@@ -15,6 +15,7 @@
     .seg { display: inline-flex; padding: 3px; background: #f0efeb; border-radius: 8px; }
     .seg button { border: 0; background: none; padding: 7px 12px; border-radius: 6px; font: inherit; font-weight: 500; color: #5a5f66; cursor: pointer; }
     .seg button[aria-pressed="true"] { background: #16181b; color: #fff; }
+    .back:focus-visible, .seg button:focus-visible { outline: 2px solid #c2410c; outline-offset: 2px; }
     .grid { display: grid; gap: 16px; padding: 16px 20px 40px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
     body.mobile .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
     .card { background: #fff; border: 1px solid #d9d8d3; border-radius: 10px; overflow: hidden; }
@@ -30,36 +31,35 @@
 </head>
 <body>
   <div class="bar">
-    <h1><a class="back" href="../">← All layouts</a> Compare layouts side by side</h1>
+    <h1><a class="back" href="../">← All layouts</a> Compare designs side by side</h1>
     <div class="tools">
       <div class="seg" role="group" aria-label="Preview width">
         <button type="button" data-w="1440" aria-pressed="true">Desktop</button>
         <button type="button" data-w="390" aria-pressed="false">Mobile</button>
-      </div>
-      <div class="seg" role="group" aria-label="Which layouts">
-        <button type="button" data-show="all" aria-pressed="true">All</button>
-        <button type="button" data-show="2" aria-pressed="false">New</button>
-        <button type="button" data-show="1" aria-pressed="false">Earlier</button>
       </div>
     </div>
   </div>
 
   <main class="grid" id="grid" aria-label="Layout previews (scroll inside each one)"></main>
 
-  <script src="../assets/layouts.js?v=4"></script>
+  <script src="../assets/layouts.js?v=5"></script>
   <script>
     (function () {
       var grid = document.getElementById("grid");
       var width = 1440;
-      window.LAYOUTS.forEach(function (l) {
-        var href = window.LAYOUT_ROUTE(l.n);
+      // The selected websites first, then the visible homepage concepts.
+      var items = window.SITES.map(function (st) {
+        return { href: window.SITE_ROUTE(st.slug), label: st.name + ' website', isNew: false };
+      }).concat(window.VISIBLE_LAYOUTS.map(function (l) {
+        return { href: window.LAYOUT_ROUTE(l.n), label: l.n + ' · ' + l.name, isNew: true };
+      }));
+      items.forEach(function (it) {
         var card = document.createElement("section");
         card.className = "card";
-        card.dataset.round = l.round === 2 ? "2" : "1";
         card.innerHTML =
-          '<header><b>' + l.n + ' · ' + l.name + (l.round === 2 ? '<span class="new">New</span>' : '') + '</b>' +
-          '<a href="' + href + '">Open full page →</a></header>' +
-          '<div class="frame"><iframe src="' + href + '?v=' + window.LAYOUT_VERSION + '" title="Preview of layout ' + l.n + ', ' + l.name + '" loading="lazy"></iframe></div>';
+          '<header><b>' + it.label + (it.isNew ? '<span class="new">New</span>' : '') + '</b>' +
+          '<a href="' + it.href + '">Open full page →</a></header>' +
+          '<div class="frame"><iframe src="' + it.href + (location.protocol === "file:" ? "" : '?v=' + window.LAYOUT_VERSION) + '" title="Preview of ' + it.label + '" loading="lazy"></iframe></div>';
         grid.appendChild(card);
       });
 
@@ -79,14 +79,6 @@
           width = +b.dataset.w;
           document.body.classList.toggle("mobile", width < 1000);
           document.querySelectorAll("[data-w]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
-          requestAnimationFrame(layout);
-        });
-      });
-      document.querySelectorAll("[data-show]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          var v = b.dataset.show;
-          document.querySelectorAll("[data-show]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
-          grid.querySelectorAll(".card").forEach(function (c) { c.hidden = v !== "all" && c.dataset.round !== v; });
           requestAnimationFrame(layout);
         });
       });

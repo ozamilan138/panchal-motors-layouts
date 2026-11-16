@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <title>Homepage Layouts — Panchal Motors</title>
-  <meta name="description" content="Fifteen homepage layout concepts for Panchal Motors, vehicle body builders in Deesa. Open each layout or compare them side by side.">
+  <title>Website Designs — Panchal Motors</title>
+  <meta name="description" content="Four full website designs for Panchal Motors, vehicle body builders in Deesa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@
     .seg-label { font-size: 13px; color: var(--muted); }
     .cmp { background: var(--ink); color: #fff; border-color: var(--ink); }
     .cmp:hover { background: #000; color: #fff; }
+    .cmp:focus-visible, .seg button:focus-visible { outline-color: var(--accent); }
 
     section.group { padding-block: clamp(36px, 5vw, 64px); scroll-margin-top: 64px; }
     .group-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
@@ -70,30 +71,27 @@
     .site-pages a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
     .site-pages a:hover { border-color: var(--ink); }
     .site-card .open { margin-top: 8px; }
-    @media (max-width: 860px) { .sites { grid-template-columns: 1fr; } }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 860px) { .sites, .grid-2 { grid-template-columns: 1fr; } }
     footer { border-top: 1px solid var(--line); }
     footer .wrap { padding-block: 28px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
     @media (max-width: 640px) { .seg-label { display: none; } }
   </style>
 </head>
 <body>
-  <a class="skip" href="#sites">Skip to layouts</a>
+  <a class="skip" href="#sites">Skip to websites</a>
 
   <header class="top">
     <div class="wrap">
-      <p class="kicker">Panchal Motors · Design review</p>
-      <h1>Homepage layout concepts</h1>
-      <p>Two selected designs are now built out as full websites. Below them are all fifteen homepage directions explored along the way, using the same real business details.</p>
+      <p class="kicker">Panchal Motors design review</p>
+      <h1>Website designs</h1>
+      <p>Four complete five-page websites to choose between. All use the same real business details and photos.</p>
     </div>
   </header>
 
   <nav class="toolbar" aria-label="Gallery tools">
     <div class="wrap">
-      <div class="jump">
-        <a href="#sites">Full websites</a>
-        <a href="#new">New concepts 08–14</a>
-        <a href="#earlier">Earlier concepts 00–07</a>
-      </div>
+      <span></span>
       <div class="tools">
         <span class="seg-label" id="pv">Preview as</span>
         <div class="seg" role="group" aria-labelledby="pv">
@@ -109,43 +107,25 @@
     <section class="group" id="sites" aria-labelledby="sites-title">
       <div class="wrap">
         <div class="group-head">
-          <h2 id="sites-title">Selected designs <span class="badge badge-site">Full websites</span></h2>
-          <p>Layouts 01 and 13, built out as complete five-page websites: Home, Services, Our Work, About and Contact.</p>
+          <h2 id="sites-title">Full websites <span class="badge badge-site">4 designs</span></h2>
+          <p>Each has Home, Services, Our Work, About and Contact pages.</p>
         </div>
         <div class="sites" id="sites-grid"></div>
       </div>
     </section>
 
-    <section class="group" id="new" aria-labelledby="new-title">
-      <div class="wrap">
-        <div class="group-head">
-          <h2 id="new-title">New concepts <span class="badge badge-new">Round 2</span></h2>
-          <p>Seven new directions, drawing on industrial manufacturer, catalogue and local-workshop sites for structure.</p>
-        </div>
-        <div class="grid" data-round="2"></div>
-      </div>
-    </section>
 
-    <section class="group" id="earlier" aria-labelledby="old-title">
-      <div class="wrap">
-        <div class="group-head">
-          <h2 id="old-title">Earlier concepts <span class="badge badge-old">Round 1</span></h2>
-          <p>The original homepage draft and the first seven concepts, kept unchanged.</p>
-        </div>
-        <div class="grid" data-round="1"></div>
-      </div>
-    </section>
 
     <noscript>
       <div class="wrap" style="padding-bottom:48px">
-        <p>Layouts: <a href="layouts/00/">00</a> · <a href="layouts/01/">01</a> · <a href="layouts/02/">02</a> · <a href="layouts/03/">03</a> · <a href="layouts/04/">04</a> · <a href="layouts/05/">05</a> · <a href="layouts/06/">06</a> · <a href="layouts/07/">07</a> · <a href="layouts/08/">08</a> · <a href="layouts/09/">09</a> · <a href="layouts/10/">10</a> · <a href="layouts/11/">11</a> · <a href="layouts/12/">12</a> · <a href="layouts/13/">13</a> · <a href="layouts/14/">14</a></p>
+        <p>Websites: <a href="sites/image-led/">Image-Led</a>, <a href="sites/local-trust/">Local Trust</a>, <a href="sites/blueprint/">Blueprint</a>, <a href="sites/red-oxide/">Red Oxide</a>.</p>
       </div>
     </noscript>
   </main>
 
   <footer><div class="wrap"><span>Panchal Motors · GIDC, Deesa, Gujarat</span><span>Photos are free-to-use stock images (<a href="credits/" style="color:inherit">credits</a>), shown until real workshop photos are supplied.</span></div></footer>
 
-  <script src="assets/layouts.js?v=4"></script>
+  <script src="assets/layouts.js?v=5"></script>
   <script>
     (function () {
       var view = "desktop";
@@ -167,8 +147,8 @@
         document.getElementById("sites-grid").appendChild(card);
       });
 
-      window.LAYOUTS.forEach(function (l) {
-        var grid = document.querySelector('.grid[data-round="' + (l.round === 2 ? 2 : 1) + '"]');
+      var grid = document.getElementById("new-grid");
+      if (grid) window.VISIBLE_LAYOUTS.forEach(function (l) {
         var href = window.LAYOUT_ROUTE(l.n);
         var card = document.createElement("article");
         card.className = "card";

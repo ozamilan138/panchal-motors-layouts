@@ -5,33 +5,41 @@
    ========================================================================== */
 
 (function () {
+  // hidden: kept on disk and reachable by URL, but left out of the gallery,
+  // the compare page and the next/previous bar. 01 and 13 now live on as the
+  // full websites below; their layout pages redirect there. 15 and 16 too.
   var LAYOUTS = [
-    { n: "00", name: "Original Homepage", round: 0, desc: "The first single-page draft: split hero, numbered services, gallery and dark contact band." },
-    { n: "01", name: "Image-Led", round: 1, desc: "Full-bleed photo hero with the headline on top and a compact five-item services strip." },
-    { n: "02", name: "Portfolio-First", round: 1, desc: "A one-line intro, then straight into a mosaic of completed vehicles." },
-    { n: "03", name: "Editorial", round: 1, desc: "Serif, magazine-style page that tells the build in four stages." },
-    { n: "04", name: "Practical", round: 1, desc: "A “What do you need?” router, vehicle-type cards and grouped services." },
-    { n: "05", name: "Minimal", round: 1, desc: "Light type, wide margins, one hero photograph and very little else." },
-    { n: "06", name: "Industrial", round: 1, desc: "Oversized condensed type, ruled panels and a yellow call band." },
-    { n: "07", name: "Trust-Led", round: 1, desc: "Company statement beside a business-details card and a capabilities table." },
-    { n: "08", name: "Industrial Flagship", round: 2, desc: "Cinematic workshop hero, capability grid, product line-up and a process timeline." },
-    { n: "09", name: "Product Explorer", round: 2, desc: "A filterable catalogue of real builds, sorted by product category." },
-    { n: "10", name: "Workshop Craftsmanship", round: 2, desc: "Seven fabrication stages told with close-up imagery and a sticky step index." },
-    { n: "11", name: "Project Portfolio", round: 2, desc: "An asymmetric project mosaic as the hero, then categories and capabilities." },
-    { n: "12", name: "Commercial Conversion", round: 2, desc: "For fleet owners: value proposition, quick WhatsApp enquiry, vehicle types and process." },
-    { n: "13", name: "Local Trust", round: 2, desc: "Friendly regional layout led by location, phone, WhatsApp and real work." },
-    { n: "14", name: "Precision Minimal", round: 2, desc: "Warm off-white canvas, large type, sharp crops and only the essentials." }
+    { n: "00", hidden: true, name: "Original Homepage", round: 0, desc: "The first single-page draft: split hero, numbered services, gallery and dark contact band." },
+    { n: "01", hidden: true, name: "Image-Led", round: 1, desc: "Full-bleed photo hero with the headline on top and a compact five-item services strip." },
+    { n: "02", hidden: true, name: "Portfolio-First", round: 1, desc: "A one-line intro, then straight into a mosaic of completed vehicles." },
+    { n: "03", hidden: true, name: "Editorial", round: 1, desc: "Serif, magazine-style page that tells the build in four stages." },
+    { n: "04", hidden: true, name: "Practical", round: 1, desc: "A “What do you need?” router, vehicle-type cards and grouped services." },
+    { n: "05", hidden: true, name: "Minimal", round: 1, desc: "Light type, wide margins, one hero photograph and very little else." },
+    { n: "06", hidden: true, name: "Industrial", round: 1, desc: "Oversized condensed type, ruled panels and a yellow call band." },
+    { n: "07", hidden: true, name: "Trust-Led", round: 1, desc: "Company statement beside a business-details card and a capabilities table." },
+    { n: "08", hidden: true, name: "Industrial Flagship", round: 2, desc: "Cinematic workshop hero, capability grid, product line-up and a process timeline." },
+    { n: "09", hidden: true, name: "Product Explorer", round: 2, desc: "A filterable catalogue of real builds, sorted by product category." },
+    { n: "10", hidden: true, name: "Workshop Craftsmanship", round: 2, desc: "Seven fabrication stages told with close-up imagery and a sticky step index." },
+    { n: "11", hidden: true, name: "Project Portfolio", round: 2, desc: "An asymmetric project mosaic as the hero, then categories and capabilities." },
+    { n: "12", hidden: true, name: "Commercial Conversion", round: 2, desc: "For fleet owners: value proposition, quick WhatsApp enquiry, vehicle types and process." },
+    { n: "13", hidden: true, name: "Local Trust", round: 2, desc: "Friendly regional layout led by location, phone, WhatsApp and real work." },
+    { n: "14", hidden: true, name: "Precision Minimal", round: 2, desc: "Warm off-white canvas, large type, sharp crops and only the essentials." },
+    { n: "15", hidden: true, name: "Blueprint", round: 3, desc: "Led by a self-drawing engineering elevation of a truck body, with a vehicle picker, the build process and a WhatsApp enquiry form." },
+    { n: "16", hidden: true, name: "Red Oxide", round: 3, desc: "Primer-red split screen: identity and contact stay fixed on the left while services and work scroll on the right." }
   ];
   window.LAYOUTS = LAYOUTS;
+  window.VISIBLE_LAYOUTS = LAYOUTS.filter(function (l) { return !l.hidden; });
 
   // Full multi-page websites built from the selected layouts.
   var SITES = [
-    { slug: "image-led", from: "01", name: "Image-Led", desc: "Full website built from layout 01: photo-led pages with a bold, dark-overlay hero on every page." },
-    { slug: "local-trust", from: "13", name: "Local Trust", desc: "Full website built from layout 13: a friendly local-workshop site led by phone, WhatsApp and location." }
+    { slug: "image-led", from: "01", name: "Image-Led", desc: "Photo-led pages with a full-bleed hero on every page, expanded Archivo headlines and a signal-orange accent." },
+    { slug: "local-trust", from: "13", name: "Local Trust", desc: "A friendly local-workshop site led by phone, WhatsApp and location, with a live open-now status and a Gujarati name line." },
+    { slug: "blueprint", from: "15", name: "Blueprint", desc: "Drawing-sheet blue with a self-drawing truck elevation, a vehicle picker, the build process and a WhatsApp enquiry form." },
+    { slug: "red-oxide", from: "16", name: "Red Oxide", desc: "Primer-red split screen: identity, contact and navigation stay fixed on the left while each page scrolls on the right." }
   ];
   window.SITES = SITES;
   // Bump on each deploy so gallery previews never show a cached, older layout.
-  window.LAYOUT_VERSION = "4";
+  window.LAYOUT_VERSION = "5";
 
   // Resolve the site root from this script's own URL so links work on any
   // host path (e.g. a GitHub Pages project subfolder) and from file://.
@@ -58,8 +66,11 @@
     var i = LAYOUTS.findIndex(function (l) { return l.n === m[1]; });
     if (i < 0) return;
     var cur = LAYOUTS[i];
-    var prev = LAYOUTS[(i - 1 + LAYOUTS.length) % LAYOUTS.length];
-    var next = LAYOUTS[(i + 1) % LAYOUTS.length];
+    // Step through the visible layouts; a hidden one opened by URL steps through all.
+    var list = cur.hidden ? LAYOUTS : window.VISIBLE_LAYOUTS;
+    i = list.indexOf(cur);
+    var prev = list[(i - 1 + list.length) % list.length];
+    var next = list[(i + 1) % list.length];
 
     var style = document.createElement("style");
     style.textContent =
@@ -98,7 +109,7 @@
     if (!m || window.self !== window.top) return;
     var site = SITES.filter(function (s) { return s.slug === m[1]; })[0];
     if (!site) return;
-    var other = SITES.filter(function (s) { return s.slug !== site.slug; })[0];
+    var other = SITES[(SITES.indexOf(site) + 1) % SITES.length];
     var style = document.createElement("style");
     style.textContent =
       ".pstrip{position:relative;z-index:2147483000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 16px;" +
@@ -112,8 +123,10 @@
     bar.setAttribute("role", "note");
     bar.innerHTML = '<a href="' + window.SITE_ROOT + '">← All layouts</a>' +
       '<span class="ps-mid">Design preview · ' + site.name + ' website (from layout ' + site.from + ')</span>' +
-      '<span class="ps-end">' + (other ? '<a class="ps-other" href="' + window.SITE_ROUTE(other.slug) + '">View ' + other.name + ' site →</a>' : '') + '</span>';
-    document.body.insertBefore(bar, document.body.firstChild);
+      '<span class="ps-end">' + (other !== site ? '<a class="ps-other" href="' + window.SITE_ROUTE(other.slug) + '">Next: ' + other.name + ' site →</a>' : '') + '</span>';
+    // After the skip link, so "Skip to content" stays the first tab stop.
+    var skip = document.querySelector("body > .skip");
+    document.body.insertBefore(bar, skip ? skip.nextSibling : document.body.firstChild);
     // Pages with a header laid over the hero use this to sit below the strip.
     document.documentElement.style.setProperty("--pstrip", bar.offsetHeight + "px");
   }

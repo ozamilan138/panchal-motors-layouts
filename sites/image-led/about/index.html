@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -23,93 +23,80 @@
       <nav class="nav" aria-label="Primary">
         <a href="../">Home</a>
         <a href="../services/">Services</a>
-        <a href="../work/">Our Work</a>
+        <a href="../work/">Our work</a>
         <a href="./" aria-current="page">About</a>
-        <a class="btn btn-white" href="../contact/">Enquire</a>
+        <a class="btn btn-signal" href="../contact/">Enquire</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero hero-page">
-      <div class="hero-img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines"></div>
+      <div class="hero-img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines" width="2000" height="1330" fetchpriority="high" decoding="async"></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span>About</span></nav>
-        <h1>A body-building workshop at GIDC, Deesa.</h1>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">About</span></nav>
+        <h1><span class="ln"><span>A body-building workshop at GIDC, Deesa.</span></span></h1>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="story-title">
       <div class="wrap story">
-        <div class="pic"><img src="../../../assets/photos/welder-frame.jpg" alt="Welder joining steel sections on a fabricated frame" loading="lazy"></div>
-        <div>
-          <p class="eyebrow">Who we are</p>
-          <h2>Panchal Motors</h2>
-          <p class="lede" style="margin-bottom:22px">We build and customise vehicles for commercial and passenger use.</p>
+        <div class="pic"><img src="../../../assets/photos/welder-frame.jpg" alt="Welder joining steel sections on a fabricated frame" width="1024" height="680" loading="lazy" decoding="async"></div>
+        <div data-reveal>
+          <h2 id="story-title">Panchal Motors</h2>
+          <p class="lede">We build and customise vehicles for commercial and passenger use.</p>
           <p>Our workshop takes each job from chassis and fabrication through to paint, interior and wiring. We build load bodies for pickups, ambulances, truck body work, bumpers and safety guards, and take on custom work.</p>
           <p>We work on vehicles from Mahindra, Tata, Maruti, Hyundai, Toyota and Eicher.</p>
         </div>
       </div>
     </section>
 
-    <section class="section white bordered">
+    <section class="section white bordered" aria-labelledby="parts-title">
       <div class="wrap">
         <div class="head">
-          <div>
-            <p class="eyebrow">What we do</p>
-            <h2>Three parts of every build.</h2>
-          </div>
-          <a class="more" href="../services/">All services →</a>
+          <h2 id="parts-title">Three parts of every build.</h2>
+          <a class="more" href="../services/">All services</a>
         </div>
-        <div class="cols3">
-          <div><span class="k">01 — Build</span><h3>Bodies &amp; chassis</h3><p>Body building, ambulance builds, chassis work and custom fabrication.</p></div>
-          <div><span class="k">02 — Finish</span><h3>Body work &amp; paint</h3><p>Full body work and paint for new builds and existing vehicles.</p></div>
-          <div><span class="k">03 — Fit-out</span><h3>Interior &amp; fittings</h3><p>Interior work, wiring, bumpers, safety guards and accessories.</p></div>
-        </div>
+        <ol class="steps three">
+          <li><span class="k">Build</span><h3>Bodies and chassis</h3><p>Body building, ambulance builds, chassis work and custom fabrication.</p></li>
+          <li><span class="k">Finish</span><h3>Body work and paint</h3><p>Full body work and paint for new builds and existing vehicles.</p></li>
+          <li><span class="k">Fit-out</span><h3>Interior and fittings</h3><p>Interior work, wiring, bumpers, safety guards and accessories.</p></li>
+        </ol>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="shop-title">
       <div class="wrap">
         <div class="head">
-          <div>
-            <p class="eyebrow">In the workshop</p>
-            <h2>Where the work happens.</h2>
-          </div>
+          <h2 id="shop-title">Where the work happens.</h2>
         </div>
-        <div class="photo-row">
-          <div class="pic"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" loading="lazy"></div>
-          <div class="pic"><img src="../../../assets/photos/weld-close.jpg" alt="Close-up of a gloved hand welding, with sparks flying" loading="lazy"></div>
-          <div class="pic"><img src="../../../assets/photos/tools-wall.jpg" alt="Hand tools arranged on a workshop wall" loading="lazy"></div>
+        <div class="photo-row" data-reveal>
+          <div class="pic"><img src="../../../assets/photos/garage-lift.jpg" alt="Vehicle workshop with tools, benches and a car on a lift" width="2000" height="1336" loading="lazy" decoding="async"></div>
+          <div class="pic"><img src="../../../assets/photos/weld-close.jpg" alt="Close-up of a gloved hand welding, with sparks flying" width="1024" height="683" loading="lazy" decoding="async"></div>
+          <div class="pic"><img src="../../../assets/photos/tools-wall.jpg" alt="Hand tools arranged on a workshop wall" width="2000" height="1333" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
 
-    <section class="section-tight white bordered">
-      <div class="wrap">
-        <div class="intro">
-          <div>
-            <p class="eyebrow">Visit us</p>
-            <p class="lede">Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat.</p>
-          </div>
-          <dl class="facts" style="margin-top:0">
-            <div><dt>Open</dt><dd>Monday – Saturday</dd></div>
-            <div><dt>Hours</dt><dd>9:00 am – 6:00 pm</dd></div>
-            <div><dt>Call</dt><dd><a href="tel:+919426546431" style="text-decoration:none">+91 94265 46431</a></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="wrap">
+    <section class="section white bordered" aria-labelledby="closer-title">
+      <div class="wrap closer">
         <div>
-          <h2>Bring us your vehicle.</h2>
+          <h2 id="closer-title">Bring us your vehicle.</h2>
           <p>Call ahead or send your requirement first.</p>
+          <div class="hero-cta">
+            <a class="btn btn-ink" href="../contact/">Contact us</a>
+            <a class="btn btn-line" href="tel:+919426546431">Call the workshop</a>
+          </div>
         </div>
-        <div class="hero-cta">
-          <a class="btn btn-white" href="../contact/">Contact Us</a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535">Get Directions</a>
+        <div class="plate" data-reveal>
+          <dl>
+            <div class="full"><dt>Workshop</dt><dd>Plot No. 1/B, GIDC, Railway Station Road, Deesa – 385535, Gujarat</dd></div>
+            <div><dt>Open</dt><dd>Monday – Saturday<br>9:00 am – 6:00 pm</dd></div>
+            <div><dt>Call</dt><dd><a href="tel:+919426546431">+91 94265 46431</a><br><a href="tel:+919427640631">+91 94276 40631</a></dd></div>
+          </dl>
+          <div class="plate-act">
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=GIDC+Railway+Station+Road+Deesa+385535">Get directions</a>
+          </div>
         </div>
       </div>
     </section>
@@ -122,15 +109,15 @@
         <p>Vehicle body builders at GIDC, Deesa. Body building, ambulances, chassis work, paint and fit-out.</p>
       </div>
       <div>
-        <h4>Pages</h4>
-        <ul><li><a href="../">Home</a></li><li><a href="../services/">Services</a></li><li><a href="../work/">Our Work</a></li><li><a href="./">About</a></li><li><a href="../contact/">Contact</a></li></ul>
+        <h2>Pages</h2>
+        <ul><li><a href="../">Home</a></li><li><a href="../services/">Services</a></li><li><a href="../work/">Our work</a></li><li><a href="./">About</a></li><li><a href="../contact/">Contact</a></li></ul>
       </div>
       <div>
-        <h4>Services</h4>
-        <ul><li><a href="../services/#body-building">Body building</a></li><li><a href="../services/#ambulances">Ambulances</a></li><li><a href="../services/#chassis">Chassis work</a></li><li><a href="../services/#paint">Paint &amp; body</a></li><li><a href="../services/#guards">Guards &amp; accessories</a></li></ul>
+        <h2>Services</h2>
+        <ul><li><a href="../services/#body-building">Body building</a></li><li><a href="../services/#ambulances">Ambulances</a></li><li><a href="../services/#chassis">Chassis work</a></li><li><a href="../services/#paint">Paint and body</a></li><li><a href="../services/#guards">Guards and accessories</a></li></ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul>
           <li><a href="tel:+919426546431">+91 94265 46431</a></li>
           <li><a href="tel:+919427640631">+91 94276 40631</a></li>
@@ -143,6 +130,7 @@
     <div class="wrap bottom"><span>© Panchal Motors, Deesa, Gujarat</span><span>Photos are representative stock images</span></div>
   </footer>
 
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>

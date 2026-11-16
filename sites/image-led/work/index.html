@@ -8,7 +8,7 @@
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/base.css">
   <link rel="stylesheet" href="../site.css">
 </head>
@@ -23,58 +23,58 @@
       <nav class="nav" aria-label="Primary">
         <a href="../">Home</a>
         <a href="../services/">Services</a>
-        <a href="./" aria-current="page">Our Work</a>
+        <a href="./" aria-current="page">Our work</a>
         <a href="../about/">About</a>
-        <a class="btn btn-white" href="../contact/">Enquire</a>
+        <a class="btn btn-signal" href="../contact/">Enquire</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero hero-page">
-      <div class="hero-img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India"></div>
+      <div class="hero-img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India" width="1024" height="679" fetchpriority="high" decoding="async"></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span>Our Work</span></nav>
-        <h1>Vehicles we've built.</h1>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">Our work</span></nav>
+        <h1><span class="ln"><span>Vehicles we've built.</span></span></h1>
         <p>Ambulances, pickup and load bodies, truck bodies, bumpers and custom work from our workshop at GIDC, Deesa.</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top: clamp(48px, 6vw, 72px)">
+    <section class="section" style="padding-top: clamp(44px, 6vw, 72px)" aria-label="Our work">
       <div class="wrap">
         <div class="chips" role="group" aria-label="Filter by category">
           <button type="button" data-filter="all" aria-pressed="true">All work</button>
-          <button type="button" data-filter="load" aria-pressed="false">Pickup &amp; load bodies</button>
+          <button type="button" data-filter="load" aria-pressed="false">Pickup and load bodies</button>
           <button type="button" data-filter="ambulance" aria-pressed="false">Ambulances</button>
           <button type="button" data-filter="truck" aria-pressed="false">Truck bodies</button>
-          <button type="button" data-filter="bumper" aria-pressed="false">Bumpers &amp; guards</button>
-          <button type="button" data-filter="custom" aria-pressed="false">SUV &amp; custom</button>
+          <button type="button" data-filter="bumper" aria-pressed="false">Bumpers and guards</button>
+          <button type="button" data-filter="custom" aria-pressed="false">SUV and custom</button>
         </div>
+        <p class="sr-only" id="count" aria-live="polite"></p>
 
         <div class="gallery" id="gallery">
-          <figure data-cat="ambulance" class="tile wide"><div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" loading="lazy"></div><figcaption><b>Bolero Ambulance</b><span>Ambulance</span></figcaption></figure>
-          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-red.jpg" alt="Red double-cab pickup with a roll bar, parked on gravel" loading="lazy"></div><figcaption><b>Tata Yoddha</b><span>Load body</span></figcaption></figure>
-          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" loading="lazy"></div><figcaption><b>Bolero Camper Steel Body</b><span>Load body</span></figcaption></figure>
-          <figure data-cat="truck" class="tile"><div class="img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India" loading="lazy"></div><figcaption><b>Tata BharatBenz</b><span>Body &amp; bumper</span></figcaption></figure>
-          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/jeep-classic.jpg" alt="Classic jeep with a hard-top rear body" loading="lazy"></div><figcaption><b>Mahindra Thar</b><span>Custom work</span></figcaption></figure>
-          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-blue.jpg" alt="Blue pickup with a roll bar on a country road" loading="lazy"></div><figcaption><b>Isuzu Pik-Up</b><span>Load body</span></figcaption></figure>
-          <figure data-cat="bumper" class="tile"><div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" loading="lazy"></div><figcaption><b>Bolero SLX Bumper</b><span>Bumper</span></figcaption></figure>
-          <figure data-cat="truck" class="tile wide"><div class="img"><img src="../../../assets/photos/truck-fleet.jpg" alt="Row of white trucks parked side by side" loading="lazy"></div><figcaption><b>Ashok Leyland</b><span>Truck</span></figcaption></figure>
-          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/suv-green.jpg" alt="Green 4x4 with a front guard on a gravel drive" loading="lazy"></div><figcaption><b>Mahindra Scorpio</b><span>Custom work</span></figcaption></figure>
-          <figure data-cat="ambulance" class="tile"><div class="img"><img src="../../../assets/photos/ambulance-ehs.jpg" alt="White box-body ambulance parked at the roadside" loading="lazy"></div><figcaption><b>Ambulance</b><span>Ambulance</span></figcaption></figure>
-          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/truck-highway.jpg" alt="Red truck with a box body on an Indian highway" loading="lazy"></div><figcaption><b>Tata Ace &amp; Super Carry Body</b><span>Load body</span></figcaption></figure>
-          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines" loading="lazy"></div><figcaption><b>Hydraulic Scissor Lift Table</b><span>Custom fabrication</span></figcaption></figure>
+          <figure data-cat="ambulance" class="tile"><div class="img"><img src="../../../assets/photos/ambulance-side.jpg" alt="Emergency ambulance parked outside an ambulance station" width="1024" height="681" loading="lazy" decoding="async"></div><figcaption><b>Bolero Ambulance</b><span>Ambulance</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-red.jpg" alt="Red double-cab pickup with a roll bar, parked on gravel" width="2000" height="1333" loading="lazy" decoding="async"></div><figcaption><b>Tata Yoddha</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/utility-body.jpg" alt="Utility vehicle with an open custom rear body and a front bull bar" width="1024" height="768" loading="lazy" decoding="async"></div><figcaption><b>Bolero Camper Steel Body</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="truck" class="tile"><div class="img"><img src="../../../assets/photos/truck-india.jpg" alt="Goods truck with a covered load body on a mountain road in India" width="1024" height="679" loading="lazy" decoding="async"></div><figcaption><b>Tata BharatBenz</b><span>Body and bumper</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/jeep-classic.jpg" alt="Classic jeep with a hard-top rear body" width="2000" height="1333" loading="lazy" decoding="async"></div><figcaption><b>Mahindra Thar</b><span>Custom work</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/pickup-blue.jpg" alt="Blue pickup with a roll bar on a country road" width="1024" height="683" loading="lazy" decoding="async"></div><figcaption><b>Isuzu Pik-Up</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="bumper" class="tile"><div class="img"><img src="../../../assets/photos/offroad-bumper.jpg" alt="Off-road vehicle with a heavy steel front bumper on rocky ground" width="1024" height="683" loading="lazy" decoding="async"></div><figcaption><b>Bolero SLX Bumper</b><span>Bumper</span></figcaption></figure>
+          <figure data-cat="truck" class="tile"><div class="img"><img src="../../../assets/photos/truck-fleet.jpg" alt="Row of white trucks parked side by side" width="1024" height="683" loading="lazy" decoding="async"></div><figcaption><b>Ashok Leyland</b><span>Truck</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/suv-green.jpg" alt="Green 4x4 with a front guard on a gravel drive" width="2000" height="1333" loading="lazy" decoding="async"></div><figcaption><b>Mahindra Scorpio</b><span>Custom work</span></figcaption></figure>
+          <figure data-cat="ambulance" class="tile"><div class="img"><img src="../../../assets/photos/ambulance-ehs.jpg" alt="White box-body ambulance parked at the roadside" width="1024" height="635" loading="lazy" decoding="async"></div><figcaption><b>Ambulance</b><span>Ambulance</span></figcaption></figure>
+          <figure data-cat="load" class="tile"><div class="img"><img src="../../../assets/photos/truck-highway.jpg" alt="Red truck with a box body on an Indian highway" width="1024" height="683" loading="lazy" decoding="async"></div><figcaption><b>Tata Ace &amp; Super Carry Body</b><span>Load body</span></figcaption></figure>
+          <figure data-cat="custom" class="tile"><div class="img"><img src="../../../assets/photos/machine-shop.jpg" alt="Workshop bench with metalworking machines" width="2000" height="1330" loading="lazy" decoding="async"></div><figcaption><b>Hydraulic Scissor Lift Table</b><span>Custom fabrication</span></figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="band">
-      <div class="pic"><img src="../../../assets/photos/grinder.jpg" alt="Angle grinder throwing sparks while cutting metal" loading="lazy"></div>
-      <div class="wrap">
-        <p class="hero-eyebrow">Your vehicle next</p>
-        <h2>Don't see your vehicle here?</h2>
+    <section class="band" aria-labelledby="band-title">
+      <div class="pic"><img src="../../../assets/photos/grinder.jpg" alt="Angle grinder throwing sparks while cutting metal" width="1024" height="683" loading="lazy" decoding="async"></div>
+      <div class="wrap" data-reveal>
+        <h2 id="band-title">Don't see your vehicle here?</h2>
         <p>Send us the make and model and what you need built.</p>
-        <a class="btn btn-accent" href="../contact/">Send an Enquiry</a>
+        <a class="btn btn-signal" href="../contact/">Send an enquiry</a>
       </div>
     </section>
   </main>
@@ -86,15 +86,15 @@
         <p>Vehicle body builders at GIDC, Deesa. Body building, ambulances, chassis work, paint and fit-out.</p>
       </div>
       <div>
-        <h4>Pages</h4>
-        <ul><li><a href="../">Home</a></li><li><a href="../services/">Services</a></li><li><a href="./">Our Work</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li></ul>
+        <h2>Pages</h2>
+        <ul><li><a href="../">Home</a></li><li><a href="../services/">Services</a></li><li><a href="./">Our work</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li></ul>
       </div>
       <div>
-        <h4>Services</h4>
-        <ul><li><a href="../services/#body-building">Body building</a></li><li><a href="../services/#ambulances">Ambulances</a></li><li><a href="../services/#chassis">Chassis work</a></li><li><a href="../services/#paint">Paint &amp; body</a></li><li><a href="../services/#guards">Guards &amp; accessories</a></li></ul>
+        <h2>Services</h2>
+        <ul><li><a href="../services/#body-building">Body building</a></li><li><a href="../services/#ambulances">Ambulances</a></li><li><a href="../services/#chassis">Chassis work</a></li><li><a href="../services/#paint">Paint and body</a></li><li><a href="../services/#guards">Guards and accessories</a></li></ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul>
           <li><a href="tel:+919426546431">+91 94265 46431</a></li>
           <li><a href="tel:+919427640631">+91 94276 40631</a></li>
@@ -108,19 +108,22 @@
   </footer>
 
   <script>
-    // Filter the gallery by category; filtered views use a simple even grid.
+    // Filter the gallery by category.
     (function () {
       var btns = document.querySelectorAll("[data-filter]"), g = document.getElementById("gallery"), items = g.querySelectorAll(".tile");
       btns.forEach(function (b) {
         b.addEventListener("click", function () {
           var f = b.dataset.filter;
           g.classList.toggle("filtered", f !== "all");
-          items.forEach(function (it) { it.hidden = !(f === "all" || it.dataset.cat === f); });
+          var shown = 0;
+          items.forEach(function (it) { it.hidden = !(f === "all" || it.dataset.cat === f); if (!it.hidden) shown++; });
+          document.getElementById("count").textContent = shown + (shown === 1 ? " project" : " projects") + " shown";
           btns.forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
         });
       });
     })();
   </script>
-  <script src="../../../assets/layouts.js?v=4" defer></script>
+  <script src="../../../assets/motion.js" defer></script>
+  <script src="../../../assets/layouts.js?v=5" defer></script>
 </body>
 </html>
